@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">登陆版</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="upsuccess">上传成功</string>
+    <string name="linnull1">第</string>
+    <string name="linnull2">行，不能为空！</string>
+    <string name="datanull">信息不能为空！</string>
+
+    <string name="print0">未连接打印机</string>
+    <string name="print1">已连接打印机</string>
+t    <string name="main_item2">首页</string>
+    <string name="main_item3">设置</string>
+
+    <string name="print_item0">已连接打印机</string>
+    <string name="print_item1">打印</string>
+    <string name="print_item2">1</string>
+    <string name="print_item3">2</string>
+    <string name="print_item4">3</string>
+    <string name="print_item5">现</string>
+    <string name="print_item6">4</string>
+    <string name="print_item7">5</string>
+    <string name="print_item8">6</string>
+    <string name="print_item9">倒</string>
+    <string name="print_item10">7</string>
+    <string name="print_item11">8</string>
+    <string name="print_item12">9</string>
+    <string name="print_item13">确定</string>
+    <string name="print_item14">0</string>
+    <string name="print_item15">X</string>
+    <string name="print_item16">换行</string>
+    <string name="print_item17">删除</string>
+    <string name="print_item18">清空</string>
+    <string name="print_item19">.</string>
+
+    <string name="set_item1">连接打印机</string>
+    <string name="set_item2">查看记录</string>
+    <string name="set_item3">使用帮助</string>
+
+    <string name="print_text1">号码</string>
+    <string name="print_text2">金额</string>
+
+    <string name="dialog_item1">提示</string>
+    <string name="dialog_item2">正在上传信息...</string>
+    <string name="dialog_item3">没有可以打印的信息！</string>
+    <string name="dialog_item4">正在打印信息...</string>
+    <string name="dialog_item5">取消</string>
+    <string name="dialog_item6">重试</string>
+    <string name="dialog_item7">确定</string>
+    <string name="dialog_item8">打印成功！</string>
+    <string name="dialog_item9">打印失败！</string>
+    <string name="dialog_item10">打印机连接失败！</string>
+    <string name="dialog_item11">已打印的码退码后必须点击一次！</string>
+
+    <string name="search">查找</string>
+    <string name="toast_success">Success</string>
+    <string name="toast_fail">Fail</string>
+    <string name="toast_notconnect">Please connect printer</string>
+    <string name="toast_usbpermit">Please permit app use usb and reclick this button</string>
+    <string name="tingya">清空</string>
+    <string name="delect">退码</string>
+
+
+</resources>

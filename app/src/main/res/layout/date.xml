@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <include layout="@layout/title" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                style="@style/data_text"
+                android:text="金额" />
+
+            <TextView
+                style="@style/data_text"
+                android:text="回水" />
+
+            <TextView
+                style="@style/data_text"
+                android:text="中奖" />
+
+            <TextView
+                style="@style/data_text"
+                android:text="盈亏1" />
+
+            <TextView
+                style="@style/data_text"
+                android:text="盈亏2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/data_tv_item1"
+                style="@style/data_text"
+                android:padding="0dp"
+                android:textColor="@color/red"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/data_tv_item2"
+                style="@style/data_text"
+                android:padding="0dp"
+                android:textColor="@color/red"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/data_tv_item3"
+                style="@style/data_text"
+                android:padding="0dp"
+                android:textColor="@color/red"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/data_tv_item4"
+                style="@style/data_text"
+                android:padding="0dp"
+                android:textColor="@color/red"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/data_tv_item5"
+                style="@style/data_text"
+                android:padding="0dp"
+                android:textColor="@color/red"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                style="@style/data_text"
+                android:layout_margin="0dp"
+                android:padding="0dp" />
+
+            <TextView
+                style="@style/data_text"
+                android:layout_margin="0dp"
+                android:padding="0dp"
+                android:text="回 水" />
+
+            <TextView
+                style="@style/data_text"
+                android:layout_margin="0dp"
+                android:padding="0dp"
+                android:text="赔 率" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/data_tv_item11"
+                style="@style/data_text"
+                android:text="二定位" />
+
+            <TextView
+                android:id="@+id/data_tv_item12"
+                style="@style/data_text"
+                android:textColor="@color/red" />
+
+            <EditText
+                android:id="@+id/data_ev_item13"
+                style="@style/data_text"
+                android:background="@drawable/textview_circle"
+                android:inputType="numberDecimal"
+                android:textColor="@color/red" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/data_tv_item21"
+                style="@style/data_text"
+                android:text="三定位" />
+
+            <TextView
+                android:id="@+id/data_tv_item22"
+                style="@style/data_text"
+                android:textColor="@color/red" />
+
+            <EditText
+                android:id="@+id/data_ev_item23"
+                style="@style/data_text"
+                android:background="@drawable/textview_circle"
+                android:inputType="numberDecimal"
+                android:textColor="@color/red" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/data_tv_item31"
+                style="@style/data_text"
+                android:text="四定位" />
+
+            <TextView
+                android:id="@+id/data_tv_item32"
+                style="@style/data_text"
+                android:textColor="@color/red" />
+
+            <EditText
+                android:id="@+id/data_ev_item33"
+                style="@style/data_text"
+                android:background="@drawable/textview_circle"
+                android:inputType="numberDecimal"
+                android:textColor="@color/red" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/data_tv_item41"
+                style="@style/data_text"
+                android:text="二字现" />
+
+            <TextView
+                android:id="@+id/data_tv_item42"
+                style="@style/data_text"
+                android:textColor="@color/red" />
+
+            <EditText
+                android:id="@+id/data_ev_item43"
+                style="@style/data_text"
+                android:background="@drawable/textview_circle"
+                android:inputType="numberDecimal"
+                android:textColor="@color/red" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/data_tv_item51"
+                style="@style/data_text"
+                android:text="三字现" />
+
+            <TextView
+                android:id="@+id/data_tv_item52"
+                style="@style/data_text"
+                android:textColor="@color/red" />
+
+            <EditText
+                android:id="@+id/data_ev_item53"
+                style="@style/data_text"
+                android:background="@drawable/textview_circle"
+                android:inputType="numberDecimal"
+                android:textColor="@color/red" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/data_tv_item61"
+                style="@style/data_text"
+                android:text="四字现" />
+
+            <TextView
+                android:id="@+id/data_tv_item62"
+                style="@style/data_text"
+                android:textColor="@color/red" />
+
+            <EditText
+                android:id="@+id/data_ev_item63"
+                style="@style/data_text"
+                android:background="@drawable/textview_circle"
+                android:inputType="numberDecimal"
+                android:textColor="@color/red" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/date_et_item"
+                android:background="@null"
+                android:text="录码模式" />
+
+            <TextView
+                android:id="@+id/data_tv_mode1"
+                style="@style/date_et_item"
+                android:text="实际" />
+
+            <TextView
+                android:id="@+id/data_tv_mode2"
+                style="@style/date_et_item"
+                android:text="转换" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="500dp" />
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/numlist_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp" />
+    <TextView
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/layout"/>
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:id="@+id/chose_bottom_item1"
+                style="@style/chose_bottom_item"
+                android:layout_weight="1.5"
+                android:background="@null" />
+
+
+            <RelativeLayout
+                android:id="@+id/table_item1_layout"
+                style="@style/chose_bottom_item">
+
+                <TextView
+                    android:id="@+id/num_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="金额"
+                    android:lines="1"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/table_item1_clo"
+                    android:layout_width="1dp"
+                    android:layout_height="15dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="2dp"
+                    android:layout_toRightOf="@id/num_text"
+                    android:background="@color/blue"
+                    android:lines="1"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/chose_bottom_item3"
+                style="@style/chose_bottom_item"
+                android:background="@drawable/textview_circle2"
+                android:text="下注"
+                android:textColor="@color/white" />
+        </LinearLayout>
+        <include layout="@layout/keybord"/>
+    </LinearLayout>
+
+</RelativeLayout>

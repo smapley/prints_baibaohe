@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/title"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:background="@color/black"
+        android:layout_below="@+id/title"/>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title">
+
+
+        <LinearLayout
+            android:id="@+id/chose_back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/chose_et_item"
+                    android:layout_weight="1.5"
+                    android:background="@null"
+                    android:text="定"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/chose_dao1"
+                    style="@style/chose_et_item"
+                    android:text="倒" />
+
+                <TextView
+                    android:id="@+id/chose_dao2"
+                    style="@style/chose_et_item"
+                    android:text="倒" />
+
+                <TextView
+                    android:id="@+id/chose_dao3"
+                    style="@style/chose_et_item"
+                    android:text="倒" />
+
+                <TextView
+                    android:id="@+id/chose_dao4"
+                    style="@style/chose_et_item"
+                    android:text="倒" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <RelativeLayout
+                    android:id="@+id/chose_item1_layout"
+                    style="@style/chose_item_layout">
+
+                    <TextView
+                        android:id="@+id/chose_item1"
+                        style="@style/chose_item" />
+
+                    <TextView
+                        android:id="@+id/chose_item1_clo"
+                        style="@style/chose_item_clo"
+                        android:layout_toRightOf="@id/chose_item1" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/chose_item2_layout"
+                    style="@style/chose_item_layout">
+
+                    <TextView
+                        android:id="@+id/chose_item2"
+                        style="@style/chose_item" />
+
+                    <TextView
+                        android:id="@+id/chose_item2_clo"
+                        style="@style/chose_item_clo"
+                        android:layout_toRightOf="@id/chose_item2" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/chose_item3_layout"
+                    style="@style/chose_item_layout">
+
+                    <TextView
+                        android:id="@+id/chose_item3"
+                        style="@style/chose_item" />
+
+                    <TextView
+                        android:id="@+id/chose_item3_clo"
+                        style="@style/chose_item_clo"
+                        android:layout_toRightOf="@id/chose_item3" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/chose_item4_layout"
+                    style="@style/chose_item_layout">
+
+                    <TextView
+                        android:id="@+id/chose_item4"
+                        style="@style/chose_item" />
+
+                    <TextView
+                        android:id="@+id/chose_item4_clo"
+                        style="@style/chose_item_clo"
+                        android:layout_toRightOf="@id/chose_item4" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:id="@+id/chose_qian"
+                    style="@style/chose_et_item"
+                    android:text="仟" />
+
+                <TextView
+                    android:id="@+id/chose_bai"
+                    style="@style/chose_et_item"
+                    android:text="佰" />
+
+                <TextView
+                    android:id="@+id/chose_shi"
+                    style="@style/chose_et_item"
+                    android:text="拾" />
+
+                <TextView
+                    android:id="@+id/chose_ge"
+                    style="@style/chose_et_item"
+                    android:text="个" />
+
+                <TextView
+                    style="@style/chose_et_item"
+                    android:background="@null"
+                    android:text="合"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:id="@+id/chose_item5_layout"
+                    style="@style/chose_item_layout"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.8">
+
+
+                    <TextView
+                        android:id="@+id/chose_item5"
+                        style="@style/chose_item" />
+
+                    <TextView
+                        android:id="@+id/chose_item5_clo"
+                        style="@style/chose_item_clo"
+                        android:layout_toRightOf="@id/chose_item5" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:id="@+id/chose_qian2"
+                    style="@style/chose_et_item"
+                    android:text="仟" />
+
+                <TextView
+                    android:id="@+id/chose_bai2"
+                    style="@style/chose_et_item"
+                    android:text="佰" />
+
+                <TextView
+                    android:id="@+id/chose_shi2"
+                    style="@style/chose_et_item"
+                    android:text="拾" />
+
+                <TextView
+                    android:id="@+id/chose_ge2"
+                    style="@style/chose_et_item"
+                    android:text="个" />
+
+                <TextView
+                    style="@style/chose_et_item"
+                    android:background="@null"
+                    android:text="合"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:id="@+id/chose_item6_layout"
+                    style="@style/chose_item_layout"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.8">
+
+
+                    <TextView
+                        android:id="@+id/chose_item6"
+                        style="@style/chose_item" />
+
+                    <TextView
+                        android:id="@+id/chose_item6_clo"
+                        style="@style/chose_item_clo"
+                        android:layout_toRightOf="@id/chose_item6" />
+                </RelativeLayout>
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="400dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/chose_keybord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/bac1"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/key_item9"
+                style="@style/keybord"
+                android:text="@string/print_item10" />
+
+            <TextView
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/gray" />
+
+            <TextView
+                android:id="@+id/key_item10"
+                style="@style/keybord"
+                android:text="@string/print_item11" />
+
+            <TextView
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/gray" />
+
+            <TextView
+                android:id="@+id/key_item11"
+                style="@style/keybord"
+                android:text="@string/print_item12" />
+
+
+            <TextView
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/gray" />
+
+            <TextView
+                android:id="@+id/key_item4"
+                style="@style/keybord"
+                android:text="@string/print_item5" />
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/key_item5"
+                style="@style/keybord"
+                android:text="@string/print_item6" />
+
+            <TextView
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/gray" />
+
+            <TextView
+                android:id="@+id/key_item6"
+                style="@style/keybord"
+                android:text="@string/print_item7" />
+
+            <TextView
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/gray" />
+
+            <TextView
+                android:id="@+id/key_item7"
+                style="@style/keybord"
+                android:text="@string/print_item8" />
+
+            <TextView
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/gray" />
+
+            <TextView
+                android:id="@+id/key_item8"
+                style="@style/keybord"
+                android:text="@string/print_item9" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/key_item1"
+                        style="@style/keybord"
+                        android:text="@string/print_item2" />
+
+                    <TextView
+                        android:layout_width="0.5dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/gray" />
+
+                    <TextView
+                        android:id="@+id/key_item2"
+                        style="@style/keybord"
+                        android:text="@string/print_item3" />
+
+                    <TextView
+                        android:layout_width="0.5dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/gray" />
+
+                    <TextView
+                        android:id="@+id/key_item3"
+                        style="@style/keybord"
+                        android:text="@string/print_item4" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/gray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/key_item14"
+                        style="@style/keybord"
+                        android:text="@string/print_item15" />
+
+                    <TextView
+                        android:layout_width="0.5dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/gray" />
+
+                    <TextView
+                        android:id="@+id/key_item13"
+                        style="@style/keybord"
+                        android:text="@string/print_item14" />
+
+                    <TextView
+                        android:layout_width="0.5dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/gray" />
+
+                    <TextView
+                        android:id="@+id/key_item15"
+                        style="@style/keybord"
+                        android:text="@string/print_item19" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_weight="0.75">
+
+                <TextView
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray" />
+
+                <TextView
+                    android:id="@+id/key_item12"
+                    style="@style/keybord"
+                    android:layout_height="100dp"
+                    android:text="确\n定" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>
+
