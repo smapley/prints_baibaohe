@@ -171,13 +171,13 @@
                 android:layout_height="0.3dp"
                 android:background="@color/gray" />
 
-            <com.smapley.prints2.listview.SwipeMenuListView
+            <com.smapley.moni.listview.SwipeMenuListView
                 android:id="@+id/detail_list"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1">
 
-            </com.smapley.prints2.listview.SwipeMenuListView>
+            </com.smapley.moni.listview.SwipeMenuListView>
 
             <LinearLayout
                 android:id="@+id/lin3"

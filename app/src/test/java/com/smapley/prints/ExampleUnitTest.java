@@ -1,4 +1,4 @@
-package com.smapley.prints2;
+package com.smapley.moni;
 
 import org.junit.Test;
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.smapley.prints2">
+    package="com.smapley.moni">
 
     <uses-feature
         android:name="android.hardware.bluetooth"
@@ -27,7 +27,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.smapley.prints2.activity.Login"
+            android:name="com.smapley.moni.activity.Login"
             android:label="@string/app_name"
             android:windowSoftInputMode="stateVisible|adjustResize">
             <intent-filter>
@@ -37,18 +37,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.smapley.prints2.activity.SearchBTActivity"
+            android:name="com.smapley.moni.activity.SearchBTActivity"
             android:screenOrientation="portrait" />
-        <activity android:name="com.smapley.prints2.activity.DuiJiang" />
+        <activity android:name="com.smapley.moni.activity.DuiJiang" />
         <activity
-            android:name="com.smapley.prints2.activity.MainActivity"
+            android:name="com.smapley.moni.activity.MainActivity"
             android:windowSoftInputMode="adjustNothing" />
-        <activity android:name="com.smapley.prints2.activity.Detail" />
+        <activity android:name="com.smapley.moni.activity.Detail" />
         <activity
-            android:name="com.smapley.prints2.activity.NumList"
+            android:name="com.smapley.moni.activity.NumList"
             android:windowSoftInputMode="adjustResize" />
 
-        <service android:name="com.smapley.prints2.print.WorkService" />
+        <service android:name="com.smapley.moni.print.WorkService" />
 
     </application>
 
