@@ -86,6 +86,7 @@ public class Data extends Fragment implements OnClickListener ,View.OnFocusChang
     private void initView(View view) {
 
         tv_title2=(TextView)view.findViewById(R.id.title_item2);
+        tv_title2.setText("竞猜");
         tv_title3=(TextView)view.findViewById(R.id.title_item3);
         tv_title3.setText("保存");
         tv_title3.setOnClickListener(new OnClickListener() {

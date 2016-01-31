@@ -99,8 +99,7 @@ public class Set extends Fragment {
                             @Override
                             public void run() {
                                 HashMap map = new HashMap();
-                                map.put("user1",MyData.UserName1);
-                                map.put("user2",MyData.UserName2);
+                                map.put("user1",MyData.UserName);
                                 mhandler.obtainMessage(LOGOUT,HttpUtils.updata(map,MyData.URL_Reg2)).sendToTarget();
                             }
                         }).start();
@@ -122,12 +121,9 @@ public class Set extends Fragment {
                     case LOGOUT:
                         SharedPreferences sp_user = getActivity().getSharedPreferences("user", getActivity().MODE_PRIVATE);
                         SharedPreferences.Editor editor = sp_user.edit();
-                        editor.putBoolean("login1", false);
-                        editor.putBoolean("login2", false);
+                        editor.putBoolean("islogin", false);
                         editor.commit();
-                        MyData.Login1=false;
-                        MyData.Login2=false;
-                        MyData.User=0;
+                        MyData.Login=false;
                         startActivity(new Intent(getActivity(), Login.class));
                         getActivity().finish();
                         break;

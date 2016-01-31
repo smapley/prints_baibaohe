@@ -30,7 +30,7 @@
         android:layout_height="50dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="资料"
+        android:text="竞猜"
         android:textSize="18sp"
         android:textStyle="bold" />
 

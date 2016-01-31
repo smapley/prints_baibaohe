@@ -13,9 +13,6 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,7 +42,6 @@ import java.util.Map;
 public class Detail extends Activity {
 
     private static final int PRINT = 5;
-    private static final int GETDATA3 = 3;
     private static final int ERROR = 7;
     private static final int DELECTS = 8;
     private SwipeMenuListView listView;
@@ -67,7 +63,6 @@ public class Detail extends Activity {
 
     private TextView item1;
     private TextView item2;
-    private TextView item3;
 
     private TextView page_up;
     private TextView page_num;
@@ -77,14 +72,9 @@ public class Detail extends Activity {
     private int page_num1 = 1;
     private int page_num2 = 1;
 
-    private LinearLayout layout1;
-    private LinearLayout layout2;
-
     public static Dialog dialog;
     private Map map;
     private String allidString;
-    private ListView listView3;
-    private SimpleAdapter adapter3;
 
     private String qishu;
 
@@ -110,7 +100,6 @@ public class Detail extends Activity {
         initView();
         getData(GETDATA1);
         getData(GETDATA2);
-        getData(GETDATA3);
     }
 
     private void upData() {
@@ -228,7 +217,6 @@ public class Detail extends Activity {
             }
         });
 
-        listView3 = (ListView) findViewById(R.id.detail_list3);
 
 
         listView = (SwipeMenuListView) findViewById(R.id.detail_list);
@@ -297,9 +285,6 @@ public class Detail extends Activity {
 
         item1 = (TextView) findViewById(R.id.detail_item1);
         item2 = (TextView) findViewById(R.id.detail_item2);
-        item3 = (TextView) findViewById(R.id.detail_item3);
-        layout1 = (LinearLayout) findViewById(R.id.layout1);
-        layout2 = (LinearLayout) findViewById(R.id.layout2);
         page_down = (TextView) findViewById(R.id.page_down);
         page_num = (TextView) findViewById(R.id.page_num);
         page_up = (TextView) findViewById(R.id.page_up);
@@ -360,14 +345,11 @@ public class Detail extends Activity {
             @Override
             public void onClick(View v) {
                 now_item = 1;
-                layout1.setVisibility(View.VISIBLE);
-                layout2.setVisibility(View.INVISIBLE);
                 checkBox.setVisibility(View.VISIBLE);
                 checkBoxs.setVisibility(View.GONE);
                 listView.setAdapter(adapter1);
                 item1.setTextColor(getResources().getColor(R.color.blue));
                 item2.setTextColor(getResources().getColor(R.color.black));
-                item3.setTextColor(getResources().getColor(R.color.black));
                 page_num.setText(page_num1 + "");
             }
         });
@@ -375,26 +357,12 @@ public class Detail extends Activity {
             @Override
             public void onClick(View v) {
                 now_item = 2;
-                layout1.setVisibility(View.VISIBLE);
-                layout2.setVisibility(View.INVISIBLE);
                 checkBox.setVisibility(View.GONE);
                 checkBoxs.setVisibility(View.VISIBLE);
                 listView.setAdapter(adapter2);
                 item1.setTextColor(getResources().getColor(R.color.black));
                 item2.setTextColor(getResources().getColor(R.color.blue));
-                item3.setTextColor(getResources().getColor(R.color.black));
                 page_num.setText(page_num2 + "");
-            }
-        });
-        item3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                now_item = 3;
-                layout1.setVisibility(View.INVISIBLE);
-                layout2.setVisibility(View.VISIBLE);
-                item1.setTextColor(getResources().getColor(R.color.black));
-                item2.setTextColor(getResources().getColor(R.color.black));
-                item3.setTextColor(getResources().getColor(R.color.blue));
             }
         });
 
@@ -411,8 +379,6 @@ public class Detail extends Activity {
                     url = MyData.URL_GETMINGXI;
                 } else if (num == GETDATA2) {
                     url = MyData.URL_GETJIANG;
-                } else if (num == GETDATA3) {
-                    url = MyData.URL_GETZHANGDAN;
                 }
                 mhandler.obtainMessage(num, HttpUtils.updata(map, url)).sendToTarget();
             }
@@ -477,16 +443,6 @@ public class Detail extends Activity {
 
                         break;
 
-                    case GETDATA3:
-                        List<Map<String, Object>> list3 = JSON.parseObject(msg.obj.toString(), new TypeReference<List<Map<String, Object>>>() {
-                        });
-                        if (list3 != null) {
-                            adapter3 = new SimpleAdapter(Detail.this, list3, R.layout.detail_zhangdan_item
-                                    , new String[]{"qishu", "zjine", "zhuishui", "zzhongjiang", "yingkui1", "yingkui2"}
-                                    , new int[]{R.id.zhangdan_tv_item0, R.id.zhangdan_tv_item1, R.id.zhangdan_tv_item2, R.id.zhangdan_tv_item3, R.id.zhangdan_tv_item4, R.id.zhangdan_tv_item5});
-                            listView3.setAdapter(adapter3);
-                        }
-                        break;
 
                     case TUIMA:
                         int result = JSON.parseObject(msg.obj.toString(), new TypeReference<Integer>() {

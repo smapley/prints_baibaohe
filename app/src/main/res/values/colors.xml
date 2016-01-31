@@ -3,4 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="chengse">#ff8302</color>
+    <color name="chengses">#FF6000</color>
+    <color name="white2">#ffffff</color>
+
 </resources>

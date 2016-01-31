@@ -61,5 +61,11 @@ t    <string name="main_item2">首页</string>
     <string name="tingya">清空</string>
     <string name="delect">退码</string>
 
-
+    <string name="login_tag">登 陆</string>
+    <string name="login_phone">手机号码</string>
+    <string name="login_send">发送验证码</string>
+    <string name="login_key">验证码</string>
+    <string name="login_testing">验 证</string>
+    <string name="back">返回</string>
+    <string name="internet_err">网络不给力！</string>
 </resources>

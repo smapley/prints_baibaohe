@@ -54,7 +54,6 @@ public class Print extends Fragment implements View.OnClickListener {
     private TextView tv_title1;
     private TextView tv_title2;
     private TextView tv_title3;
-    private TextView title_user;
 
     private View keybord;
     private TextView back;
@@ -99,7 +98,7 @@ public class Print extends Fragment implements View.OnClickListener {
     private static Map<String, String> baseMap = new HashMap<>();
     private SharedPreferences sp_user;
 
-    private String title = "已用：";
+    private String title = "金币：";
     private String yyed = "";
     public String qishu = "";
 
@@ -195,10 +194,7 @@ public class Print extends Fragment implements View.OnClickListener {
         tv_title1 = (TextView) view.findViewById(R.id.title_item1);
         tv_title2 = (TextView) view.findViewById(R.id.title_item2);
         tv_title3 = (TextView) view.findViewById(R.id.title_item3);
-        title_user = (TextView) view.findViewById(R.id.title_user);
         listView1 = (ListView) view.findViewById(R.id.list1);
-        title_user.setText(MyData.UserName);
-        title_user.setOnClickListener(this);
         tv_title1.setText("明细");
         tv_title2.setText(title + yyed);
         tv_title3.setText("打印");
@@ -402,20 +398,6 @@ public class Print extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.title_user:
-                if (MyData.User == 1) {
-                    MyData.User = 2;
-                    MyData.UserName = MyData.UserName2;
-                    MyData.PassWord = MyData.PassWord2;
-                    getData();
-                } else if (MyData.User == 2) {
-                    MyData.User = 1;
-                    MyData.UserName = MyData.UserName1;
-                    MyData.PassWord = MyData.PassWord1;
-                    getData();
-                }
-                title_user.setText(MyData.UserName);
-                break;
             case R.id.key_item4:
                 if (xian == 0) {
                     tag.setText("现");

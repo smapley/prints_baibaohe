@@ -42,16 +42,6 @@
             android:id="@+id/detail_item2"
             style="@style/data_text"
             android:text="中奖" />
-
-        <TextView
-            android:layout_width="0.3dp"
-            android:layout_height="match_parent"
-            android:background="@color/gray" />
-
-        <TextView
-            android:id="@+id/detail_item3"
-            style="@style/data_text"
-            android:text="账单" />
     </LinearLayout>
 
     <TextView
@@ -73,133 +63,82 @@
         android:layout_below="@+id/lin1"
         android:background="@color/gray" />
 
-    <FrameLayout
+
+    <LinearLayout
+        android:id="@+id/layout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/lin1">
+        android:layout_below="@+id/lin1"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/layout2"
+            android:id="@+id/lin2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:visibility="invisible"
-            tools:visibility="visible">
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:gravity="center_vertical">
-
-                <TextView
-                    style="@style/data_text1"
-                    android:text="金额" />
-
-                <TextView
-                    style="@style/data_text1"
-                    android:text="回水" />
-
-                <TextView
-                    style="@style/data_text1"
-                    android:text="中奖" />
-
-                <TextView
-                    style="@style/data_text1"
-                    android:text="盈亏1" />
-
-                <TextView
-                    style="@style/data_text1"
-                    android:text="盈亏2" />
-            </LinearLayout>
+            <CheckBox
+                android:id="@+id/details_check"
+                style="@style/data_text1"
+                android:gravity="left|center_vertical"
+                android:text="号码" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0.3dp"
-                android:background="@color/gray" />
+                android:id="@+id/details_check2"
+                style="@style/data_text1"
+                android:text="号码"
+                android:visibility="gone" />
 
-            <ListView
-                android:id="@+id/detail_list3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+            <TextView
+                style="@style/data_text1"
+                android:layout_weight="0.5"
+                android:text="金额" />
 
+            <TextView
+                style="@style/data_text1"
+                android:layout_weight="0.8"
+                android:text="赔率" />
+
+            <TextView
+                style="@style/data_text1"
+                android:layout_weight="0.8"
+                android:text="状态" />
         </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/gray" />
+
+        <com.smapley.moni.listview.SwipeMenuListView
+            android:id="@+id/detail_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+        </com.smapley.moni.listview.SwipeMenuListView>
 
         <LinearLayout
-            android:id="@+id/layout1"
+            android:id="@+id/lin3"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:visibility="invisible">
-
-            <LinearLayout
-                android:id="@+id/lin2"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:gravity="center_vertical">
-
-                <CheckBox
-                    android:id="@+id/details_check"
-                    style="@style/data_text1"
-                    android:text="号码"
-                    android:gravity="left|center_vertical"/>
-
-                <TextView
-                    android:id="@+id/details_check2"
-                    style="@style/data_text1"
-                    android:text="号码"
-                    android:visibility="gone" />
-
-                <TextView
-                    style="@style/data_text1"
-                    android:text="金额"
-                    android:layout_weight="0.5"/>
-
-                <TextView
-                    style="@style/data_text1"
-                    android:text="赔率"
-                    android:layout_weight="0.8"/>
-
-                <TextView
-                    style="@style/data_text1"
-                    android:text="状态"
-                    android:layout_weight="0.8"/>
-            </LinearLayout>
+            android:layout_height="wrap_content">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0.3dp"
-                android:background="@color/gray" />
+                android:id="@+id/page_up"
+                style="@style/data_text"
+                android:text="上页" />
 
-            <com.smapley.moni.listview.SwipeMenuListView
-                android:id="@+id/detail_list"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
+            <TextView
+                android:id="@+id/page_num"
+                style="@style/data_text"
+                android:text="1" />
 
-            </com.smapley.moni.listview.SwipeMenuListView>
-
-            <LinearLayout
-                android:id="@+id/lin3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/page_up"
-                    style="@style/data_text"
-                    android:text="上页" />
-
-                <TextView
-                    android:id="@+id/page_num"
-                    style="@style/data_text"
-                    android:text="1" />
-
-                <TextView
-                    android:id="@+id/page_down"
-                    style="@style/data_text"
-                    android:text="下页" />
-            </LinearLayout>
+            <TextView
+                android:id="@+id/page_down"
+                style="@style/data_text"
+                android:text="下页" />
         </LinearLayout>
-    </FrameLayout>
+    </LinearLayout>
 
 </RelativeLayout>
