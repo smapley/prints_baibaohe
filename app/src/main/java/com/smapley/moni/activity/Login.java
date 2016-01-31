@@ -56,7 +56,7 @@ public class Login extends Activity {
         log_st_usernmae = sp_user.getString("user1", "");
         log_st_password = sp_user.getString("mi", "");
         MyData.UserName = log_st_usernmae;
-        MyData.UserName = log_st_usernmae;
+        MyData.PassWord = log_st_password;
     }
 
     protected void initParams() {

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="jingcai_type">
+        <item>1星</item>
+        <item>2星</item>
+        <item>3星</item>
+        <item>4星</item>
+    </array>
+</resources>

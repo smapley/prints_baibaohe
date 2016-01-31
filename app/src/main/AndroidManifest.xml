@@ -49,7 +49,10 @@
             android:name="com.smapley.moni.activity.NumList"
             android:windowSoftInputMode="adjustResize" />
 
+        <activity android:name=".activity.AddZhuang"/>
+
         <service android:name="com.smapley.moni.print.WorkService" />
+
 
     </application>
 
