@@ -21,7 +21,6 @@ import com.alibaba.fastjson.TypeReference;
 import com.lvrenyang.utils.DataUtils;
 import com.smapley.moni.R;
 import com.smapley.moni.adapter.DetailAdapter;
-import com.smapley.moni.adapter.DetailAdapter2;
 import com.smapley.moni.listview.SwipeMenu;
 import com.smapley.moni.listview.SwipeMenuCreator;
 import com.smapley.moni.listview.SwipeMenuItem;
@@ -49,20 +48,14 @@ public class Detail extends Activity {
     private TextView re_print;
 
     private DetailAdapter adapter1;
-    private DetailAdapter2 adapter2;
 
     private final int GETDATA1 = 1;
-    private final int GETDATA2 = 2;
     private final int TUIMA = 6;
     private final int UPDATA = 4;
 
     private static List<Map<String, String>> list1;
     private List<Map<String, String>> list1_now;
-    private List<Map<String, String>> list2;
-    private List<Map<String, String>> list2_now;
 
-    private TextView item1;
-    private TextView item2;
 
     private TextView page_up;
     private TextView page_num;
@@ -70,7 +63,6 @@ public class Detail extends Activity {
 
     private int now_item = 1;
     private int page_num1 = 1;
-    private int page_num2 = 1;
 
     public static Dialog dialog;
     private Map map;
@@ -79,7 +71,6 @@ public class Detail extends Activity {
     private String qishu;
 
     private static CheckBox checkBox;
-    private TextView checkBoxs;
 
     public static List<Map> removeList = new ArrayList<>();
     private TextView delect;
@@ -99,7 +90,6 @@ public class Detail extends Activity {
 
         initView();
         getData(GETDATA1);
-        getData(GETDATA2);
     }
 
     private void upData() {
@@ -152,7 +142,6 @@ public class Detail extends Activity {
     private void initView() {
 
         checkBox = (CheckBox) findViewById(R.id.details_check);
-        checkBoxs = (TextView) findViewById(R.id.details_check2);
         delect = (TextView) findViewById(R.id.detail_delect);
 
         delect.setOnClickListener(new View.OnClickListener() {
@@ -283,8 +272,6 @@ public class Detail extends Activity {
             }
         });
 
-        item1 = (TextView) findViewById(R.id.detail_item1);
-        item2 = (TextView) findViewById(R.id.detail_item2);
         page_down = (TextView) findViewById(R.id.page_down);
         page_num = (TextView) findViewById(R.id.page_num);
         page_up = (TextView) findViewById(R.id.page_up);
@@ -303,18 +290,6 @@ public class Detail extends Activity {
                         adapter1 = new DetailAdapter(Detail.this, list1_now);
                         listView.setAdapter(adapter1);
                     }
-                } else if (now_item == 2) {
-                    if (page_num2 * 100 < list2.size()) {
-                        if (page_num2 * 100 + 100 < list2.size()) {
-                            list2_now = list2.subList(page_num2 * 100, page_num2 * 100 + 100);
-                        } else {
-                            list2_now = list2.subList(page_num2 * 100, list2.size());
-                        }
-                        page_num2++;
-                        page_num.setText(page_num2 + "");
-                        adapter2 = new DetailAdapter2(Detail.this, list2_now);
-                        listView.setAdapter(adapter2);
-                    }
                 }
             }
         });
@@ -330,39 +305,7 @@ public class Detail extends Activity {
                         adapter1 = new DetailAdapter(Detail.this, list1_now);
                         listView.setAdapter(adapter1);
                     }
-                } else if (now_item == 2) {
-                    if (page_num2 > 1) {
-                        page_num2--;
-                        list2_now = list2.subList(page_num2 * 100 - 100, page_num2 * 100);
-                        page_num.setText(page_num2 + "");
-                        adapter2 = new DetailAdapter2(Detail.this, list2_now);
-                        listView.setAdapter(adapter2);
-                    }
                 }
-            }
-        });
-        item1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                now_item = 1;
-                checkBox.setVisibility(View.VISIBLE);
-                checkBoxs.setVisibility(View.GONE);
-                listView.setAdapter(adapter1);
-                item1.setTextColor(getResources().getColor(R.color.blue));
-                item2.setTextColor(getResources().getColor(R.color.black));
-                page_num.setText(page_num1 + "");
-            }
-        });
-        item2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                now_item = 2;
-                checkBox.setVisibility(View.GONE);
-                checkBoxs.setVisibility(View.VISIBLE);
-                listView.setAdapter(adapter2);
-                item1.setTextColor(getResources().getColor(R.color.black));
-                item2.setTextColor(getResources().getColor(R.color.blue));
-                page_num.setText(page_num2 + "");
             }
         });
 
@@ -377,8 +320,6 @@ public class Detail extends Activity {
                 String url = null;
                 if (num == GETDATA1) {
                     url = MyData.URL_GETMINGXI;
-                } else if (num == GETDATA2) {
-                    url = MyData.URL_GETJIANG;
                 }
                 mhandler.obtainMessage(num, HttpUtils.updata(map, url)).sendToTarget();
             }
@@ -418,31 +359,6 @@ public class Detail extends Activity {
                         listView.setAdapter(adapter1);
 
                         break;
-                    case GETDATA2:
-                        list2 = JSON.parseObject(msg.obj.toString(), new TypeReference<List<Map<String, String>>>() {
-                        });
-                        for (int i = 0; i < list2.size(); i++) {
-                            switch (Integer.parseInt(list2.get(i).get("zt").toString())) {
-                                case 0:
-                                    list2.get(i).put("zt", "未打印");
-                                    break;
-                                case 1:
-                                    list2.get(i).put("zt", "已打印");
-                                    break;
-                                case 9:
-                                    list2.get(i).put("zt", "已退码");
-                                    break;
-                            }
-                        }
-                        if (list2.size() > 100) {
-                            list2_now = list2.subList(0, 100);
-                        } else {
-                            list2_now = list2;
-                        }
-                        adapter2 = new DetailAdapter2(Detail.this, list2_now);
-
-                        break;
-
 
                     case TUIMA:
                         int result = JSON.parseObject(msg.obj.toString(), new TypeReference<Integer>() {

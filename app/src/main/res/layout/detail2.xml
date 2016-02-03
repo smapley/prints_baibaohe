@@ -6,18 +6,6 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/detail_delect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/lin1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignTop="@+id/lin1"
-        android:gravity="center"
-        android:padding="10dp"
-        android:text="删除"
-        android:textColor="@color/black"
-        android:textSize="18sp" />
 
     <LinearLayout
         android:id="@+id/lin1"
@@ -29,22 +17,10 @@
         <TextView
             android:id="@+id/detail_item1"
             style="@style/data_text"
-            android:text="明细"
+            android:text="合庄明细"
             android:textSize="18sp"/>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/re_print"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/lin1"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/lin1"
-        android:gravity="center"
-        android:padding="10dp"
-        android:text="重打"
-        android:textColor="@color/black"
-        android:textSize="18sp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -64,15 +40,12 @@
             android:id="@+id/lin2"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
             android:gravity="center_vertical">
 
-            <CheckBox
-                android:id="@+id/details_check"
+            <TextView
+                android:id="@+id/details_check2"
                 style="@style/data_text1"
-                android:gravity="left|center_vertical"
                 android:text="号码" />
-
 
             <TextView
                 style="@style/data_text1"

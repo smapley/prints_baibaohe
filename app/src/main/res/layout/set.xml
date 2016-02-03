@@ -47,6 +47,21 @@
             android:background="@color/gray" />
 
         <TextView
+            android:id="@+id/set_item8"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:text="我的合庄"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray" />
+
+        <TextView
             android:id="@+id/set_item7"
             android:layout_width="match_parent"
             android:layout_height="50dp"

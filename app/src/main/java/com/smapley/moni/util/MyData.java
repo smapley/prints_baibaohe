@@ -48,6 +48,8 @@ public class MyData {
     public final static String URL_getZhuang=BASE_URL+"getZhuang.php";
     public final static String URL_xiazhu=BASE_URL+"xiazhu.php";
     public static final String URL_tuimaG3 = BASE_URL + "tuimaG3.php";
+    public static final String URL_getHezhuang = BASE_URL + "getHezhuang.php";
+    public static final String URL_addHezhuang = BASE_URL + "addHezhuang.php";
 
     /**
      * 获取服务器加密码

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/title" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:background="@color/black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView style="@style/hezhuang_text" />
+
+            <TextView style="@style/hezhuang_text" />
+
+            <TextView
+                style="@style/hezhuang_text"
+                android:text="赔率" />
+
+            <TextView
+                style="@style/hezhuang_text"
+                android:text="已下注" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                style="@style/hezhuang_text"
+                android:text="二字定" />
+
+            <EditText
+                android:id="@+id/jine1"
+                style="@style/hezhuang_text"
+                android:background="@drawable/textview_circle2s"
+                android:layout_marginTop="5dp"
+                android:textCursorDrawable="@color/chengse"/>
+
+            <TextView
+                android:id="@+id/peilv1"
+                style="@style/hezhuang_text" />
+
+            <TextView
+                android:id="@+id/yiya1"
+                style="@style/hezhuang_text" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                style="@style/hezhuang_text"
+                android:text="三字定" />
+
+            <EditText
+                android:id="@+id/jine2"
+                style="@style/hezhuang_text"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/textview_circle2s"
+                android:textCursorDrawable="@color/chengse"/>
+
+            <TextView
+                android:id="@+id/peilv2"
+                style="@style/hezhuang_text" />
+
+            <TextView
+                android:id="@+id/yiya2"
+                style="@style/hezhuang_text" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                style="@style/hezhuang_text"
+                android:text="四字定" />
+
+            <EditText
+                android:id="@+id/jine3"
+                style="@style/hezhuang_text"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/textview_circle2s"
+                android:textCursorDrawable="@color/chengse"/>
+            <TextView
+                android:id="@+id/peilv3"
+                style="@style/hezhuang_text" />
+
+            <TextView
+                android:id="@+id/yiya3"
+                style="@style/hezhuang_text" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                style="@style/hezhuang_text"
+                android:text="二字现" />
+
+            <EditText
+                android:id="@+id/jine4"
+                style="@style/hezhuang_text"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/textview_circle2s"
+                android:textCursorDrawable="@color/chengse"/>
+
+            <TextView
+                android:id="@+id/peilv4"
+                style="@style/hezhuang_text" />
+
+            <TextView
+                android:id="@+id/yiya4"
+                style="@style/hezhuang_text" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                style="@style/hezhuang_text"
+                android:text="三字现" />
+
+            <EditText
+                android:id="@+id/jine5"
+                style="@style/hezhuang_text"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/textview_circle2s"
+                android:textCursorDrawable="@color/chengse"/>
+
+            <TextView
+                android:id="@+id/peilv5"
+                style="@style/hezhuang_text" />
+
+            <TextView
+                android:id="@+id/yiya5"
+                style="@style/hezhuang_text" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                style="@style/hezhuang_text"
+                android:text="四字现" />
+
+            <EditText
+                android:id="@+id/jine6"
+                style="@style/hezhuang_text"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/textview_circle2s"
+                android:textCursorDrawable="@color/chengse"/>
+
+            <TextView
+                android:id="@+id/peilv6"
+                style="@style/hezhuang_text" />
+
+            <TextView
+                android:id="@+id/yiya6"
+                style="@style/hezhuang_text" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

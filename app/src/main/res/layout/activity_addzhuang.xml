@@ -38,7 +38,12 @@
             <EditText
                 android:id="@+id/title"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent"
+                android:paddingLeft="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/textview_circle2s"
+                android:textCursorDrawable="@color/chengse"/>
         </LinearLayout>
 
         <LinearLayout
@@ -85,7 +90,12 @@
             <EditText
                 android:id="@+id/money"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent"
+                android:layout_marginTop="2dp"
+                android:paddingLeft="10dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/textview_circle2s"
+                android:textCursorDrawable="@color/chengse" />
         </LinearLayout>
 
         <LinearLayout
@@ -108,7 +118,12 @@
             <EditText
                 android:id="@+id/peilv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent"
+                android:layout_marginTop="2dp"
+                android:paddingLeft="10dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/textview_circle2s"
+                android:textCursorDrawable="@color/chengse" />
         </LinearLayout>
 
         <LinearLayout
@@ -131,7 +146,12 @@
             <EditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:paddingLeft="10dp"
+                android:background="@drawable/textview_circle2s"
+                android:textCursorDrawable="@color/chengse" />
         </LinearLayout>
 
 

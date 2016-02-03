@@ -208,16 +208,7 @@ public class Print extends Fragment implements View.OnClickListener {
                 if (WorkService.workThread.isConnected()) {
                     ((MainActivity) getActivity()).mhandler.obtainMessage(11).sendToTarget();
                 } else {
-                    ((MainActivity) getActivity()).connectBT();
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            while (!WorkService.workThread.isConnected()) {
-
-                            }
-                            ((MainActivity) getActivity()).mhandler.obtainMessage(11).sendToTarget();
-                        }
-                    }).start();
+                   Toast.makeText(getActivity(),"未连接打印机！",Toast.LENGTH_SHORT).show();
                 }
             }
         });

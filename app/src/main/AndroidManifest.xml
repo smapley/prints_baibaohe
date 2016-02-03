@@ -58,6 +58,8 @@
         <service android:name="com.smapley.moni.print.WorkService" />
         <activity android:name=".activity.KaiJiangNum"/>
         <activity android:name=".activity.MyJingCai"/>
+        <activity android:name=".activity.MyHeZhuang" />
+        <activity android:name=".activity.Detail2"/>
 
     </application>
 

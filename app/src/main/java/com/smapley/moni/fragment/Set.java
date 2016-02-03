@@ -22,6 +22,7 @@ import com.alibaba.fastjson.TypeReference;
 import com.smapley.moni.R;
 import com.smapley.moni.activity.KaiJiangNum;
 import com.smapley.moni.activity.Login;
+import com.smapley.moni.activity.MyHeZhuang;
 import com.smapley.moni.activity.MyJingCai;
 import com.smapley.moni.activity.SearchBTActivity;
 import com.smapley.moni.util.HttpUtils;
@@ -45,6 +46,7 @@ public class Set extends Fragment {
     private TextView item4;
     private TextView item6;
     private TextView item7;
+    private TextView item8;
     private TextView menu1;
 
     private ProgressDialog dialog;
@@ -67,7 +69,14 @@ public class Set extends Fragment {
         item4 = (TextView) view.findViewById(R.id.set_item4);
         item6 = (TextView) view.findViewById(R.id.set_item6);
         item7 = (TextView) view.findViewById(R.id.set_item7);
+        item8 = (TextView) view.findViewById(R.id.set_item8);
 
+        item8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), MyHeZhuang.class));
+            }
+        });
         item1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
