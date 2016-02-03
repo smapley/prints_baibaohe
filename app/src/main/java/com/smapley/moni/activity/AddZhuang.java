@@ -1,11 +1,12 @@
 package com.smapley.moni.activity;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
@@ -24,8 +25,10 @@ import org.xutils.x;
  * Created by smapley on 16/1/30.
  */
 @ContentView(R.layout.activity_addzhuang)
-public class AddZhuang extends AppCompatActivity {
+public class AddZhuang extends Activity {
 
+    @ViewInject(R.id.title_item2)
+    private TextView title_item2;
     @ViewInject(R.id.title)
     private EditText title;
     @ViewInject(R.id.spinner)
@@ -46,6 +49,8 @@ public class AddZhuang extends AppCompatActivity {
             });
             if (result > 0) {
                 Toast.makeText(AddZhuang.this, "房间创建成功！", Toast.LENGTH_SHORT).show();
+                setResult(1);
+                finish();
             } else {
                 Toast.makeText(AddZhuang.this, "房间创建失败！", Toast.LENGTH_SHORT).show();
             }
@@ -57,10 +62,11 @@ public class AddZhuang extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
 
+        title_item2.setText("创建房间");
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                type = i + 1 + " ";
+                type = i + 1 + "";
             }
 
             @Override

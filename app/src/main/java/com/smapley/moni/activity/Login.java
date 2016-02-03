@@ -130,6 +130,9 @@ public class Login extends Activity {
         editor.putString("mi", log_st_password);
         editor.putBoolean("islogin", true);
         editor.commit();
+        MyData.UserName=log_st_usernmae;
+        MyData.PassWord=log_st_password;
+        MyData.Login=true;
         startActivity(new Intent(Login.this, MainActivity.class));
         finish();
     }

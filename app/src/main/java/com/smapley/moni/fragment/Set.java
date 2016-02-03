@@ -20,7 +20,9 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import com.smapley.moni.R;
+import com.smapley.moni.activity.KaiJiangNum;
 import com.smapley.moni.activity.Login;
+import com.smapley.moni.activity.MyJingCai;
 import com.smapley.moni.activity.SearchBTActivity;
 import com.smapley.moni.util.HttpUtils;
 import com.smapley.moni.util.MyData;
@@ -41,6 +43,8 @@ public class Set extends Fragment {
     private TextView item1;
     private TextView item2;
     private TextView item4;
+    private TextView item6;
+    private TextView item7;
     private TextView menu1;
 
     private ProgressDialog dialog;
@@ -61,6 +65,8 @@ public class Set extends Fragment {
         item1 = (TextView) view.findViewById(R.id.set_item1);
         item2 = (TextView) view.findViewById(R.id.set_item2);
         item4 = (TextView) view.findViewById(R.id.set_item4);
+        item6 = (TextView) view.findViewById(R.id.set_item6);
+        item7 = (TextView) view.findViewById(R.id.set_item7);
 
         item1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,8 +105,8 @@ public class Set extends Fragment {
                             @Override
                             public void run() {
                                 HashMap map = new HashMap();
-                                map.put("user1",MyData.UserName);
-                                mhandler.obtainMessage(LOGOUT,HttpUtils.updata(map,MyData.URL_Reg2)).sendToTarget();
+                                map.put("user1", MyData.UserName);
+                                mhandler.obtainMessage(LOGOUT, HttpUtils.updata(map, MyData.URL_Reg2)).sendToTarget();
                             }
                         }).start();
 
@@ -108,6 +114,18 @@ public class Set extends Fragment {
                 });
                 builder.create().show();
 
+            }
+        });
+        item6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), MyJingCai.class));
+            }
+        });
+        item7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), KaiJiangNum.class));
             }
         });
     }

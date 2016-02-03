@@ -39,11 +39,11 @@ public class MyData {
 
     public final static String URL_sendSMS=BASE_URL+"sendSMS.php";
     public final static String URL_reg1=BASE_URL+"reg1.php";
-    public final static String URL_geijiangjilu=BASE_URL+"geijiangjilu.php";
+    public final static String URL_geijiangjilu=BASE_URL+"getJiangjilu.php";
     public final static String URL_getZhuangJ=BASE_URL+"getZhuangJ.php";
     public final static String URL_getJin=BASE_URL+"getJin.php";
     public final static String URL_addZhuang=BASE_URL+"addZhuang.php";
-    public final static String URL_addjiang=BASE_URL+"addjiang.php";
+    public final static String URL_addjiang=BASE_URL+"addJiang.php";
     public final static String URL_getJilu1=BASE_URL+"getJilu1.php";
     public final static String URL_getZhuang=BASE_URL+"getZhuang.php";
     public final static String URL_xiazhu=BASE_URL+"xiazhu.php";

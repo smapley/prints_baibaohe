@@ -2,10 +2,8 @@ package com.smapley.moni.fragment;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -96,7 +94,6 @@ public class Print extends Fragment implements View.OnClickListener {
     private int xian = 0;
     private int dao = 0;
     private static Map<String, String> baseMap = new HashMap<>();
-    private SharedPreferences sp_user;
 
     private String title = "金币：";
     private String yyed = "";
@@ -111,7 +108,6 @@ public class Print extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.print, container, false);
-        sp_user = getActivity().getSharedPreferences("user", Context.MODE_PRIVATE);
 
         dialog = new ProgressDialog(getActivity());
         dialog.setTitle("提示：");

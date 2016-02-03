@@ -51,8 +51,13 @@
 
         <activity android:name=".activity.AddZhuang"/>
 
-        <service android:name="com.smapley.moni.print.WorkService" />
+        <activity android:name=".activity.JingCai"/>
 
+        <activity android:name=".activity.KuaiXuan"/>
+
+        <service android:name="com.smapley.moni.print.WorkService" />
+        <activity android:name=".activity.KaiJiangNum"/>
+        <activity android:name=".activity.MyJingCai"/>
 
     </application>
 

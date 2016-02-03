@@ -1,26 +1,22 @@
-package com.smapley.moni.fragment;
+package com.smapley.moni.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.smapley.moni.R;
-import com.smapley.moni.activity.MainActivity;
-import com.smapley.moni.activity.NumList;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by hao on 2015/11/6.
+ * Created by smapley on 16/2/2.
  */
-public class Chose extends Fragment implements View.OnClickListener {
+public class KuaiXuan extends Activity implements View.OnClickListener {
 
     private TextView tv_title2;
     private TextView tv_title3;
@@ -83,7 +79,6 @@ public class Chose extends Fragment implements View.OnClickListener {
     private TextView keyitem11;
     private TextView keyitem12;
     private TextView keyitem13;
-    private TextView keyitem14;
     private TextView keyitem15;
 
 
@@ -104,29 +99,30 @@ public class Chose extends Fragment implements View.OnClickListener {
 
 
     private int now_position = 0;
-    private String title="";
 
+    private String onlyid;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.chose, container, false);
-        initView(view);
-        return view;
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_kuaixuan);
+        onlyid=getIntent().getStringExtra("onlyid");
+        initView();
     }
 
-    private void initView(View view) {
+    private void initView() {
 
-        tv_title2 = (TextView) view.findViewById(R.id.title_item2);
-        tv_title3=(TextView)view.findViewById(R.id.title_item3);
+        tv_title2 = (TextView) findViewById(R.id.title_item2);
+        tv_title2.setText("快选");
+        tv_title3=(TextView)findViewById(R.id.title_item3);
         tv_title3.setText("生成");
         tv_title3.setOnClickListener(this);
-        tv_title2.setText(title);
-        item1 = (TextView) view.findViewById(R.id.chose_item1);
-        item2 = (TextView) view.findViewById(R.id.chose_item2);
-        item3 = (TextView) view.findViewById(R.id.chose_item3);
-        item4 = (TextView) view.findViewById(R.id.chose_item4);
-        item5 = (TextView) view.findViewById(R.id.chose_item5);
-        item6 = (TextView) view.findViewById(R.id.chose_item6);
+        item1 = (TextView) findViewById(R.id.chose_item1);
+        item2 = (TextView) findViewById(R.id.chose_item2);
+        item3 = (TextView) findViewById(R.id.chose_item3);
+        item4 = (TextView) findViewById(R.id.chose_item4);
+        item5 = (TextView) findViewById(R.id.chose_item5);
+        item6 = (TextView) findViewById(R.id.chose_item6);
 
         list_item = new ArrayList<>();
         list_item.add(item1);
@@ -136,31 +132,31 @@ public class Chose extends Fragment implements View.OnClickListener {
         list_item.add(item5);
         list_item.add(item6);
 
-        qian = (TextView) view.findViewById(R.id.chose_qian);
-        bai = (TextView) view.findViewById(R.id.chose_bai);
-        shi = (TextView) view.findViewById(R.id.chose_shi);
-        ge = (TextView) view.findViewById(R.id.chose_ge);
+        qian = (TextView) findViewById(R.id.chose_qian);
+        bai = (TextView) findViewById(R.id.chose_bai);
+        shi = (TextView) findViewById(R.id.chose_shi);
+        ge = (TextView) findViewById(R.id.chose_ge);
 
-        qian2 = (TextView) view.findViewById(R.id.chose_qian2);
-        bai2 = (TextView) view.findViewById(R.id.chose_bai2);
-        shi2 = (TextView) view.findViewById(R.id.chose_shi2);
-        ge2 = (TextView) view.findViewById(R.id.chose_ge2);
+        qian2 = (TextView) findViewById(R.id.chose_qian2);
+        bai2 = (TextView) findViewById(R.id.chose_bai2);
+        shi2 = (TextView) findViewById(R.id.chose_shi2);
+        ge2 = (TextView) findViewById(R.id.chose_ge2);
 
-        dao1 = (TextView) view.findViewById(R.id.chose_dao1);
-        dao2 = (TextView) view.findViewById(R.id.chose_dao2);
-        dao3 = (TextView) view.findViewById(R.id.chose_dao3);
-        dao4 = (TextView) view.findViewById(R.id.chose_dao4);
+        dao1 = (TextView) findViewById(R.id.chose_dao1);
+        dao2 = (TextView) findViewById(R.id.chose_dao2);
+        dao3 = (TextView) findViewById(R.id.chose_dao3);
+        dao4 = (TextView) findViewById(R.id.chose_dao4);
 
-        keybord = (LinearLayout) view.findViewById(R.id.chose_keybord);
+        keybord = (LinearLayout) findViewById(R.id.chose_keybord);
 
-        back = view.findViewById(R.id.chose_back);
+        back = findViewById(R.id.chose_back);
 
-        item1_clo = (TextView) view.findViewById(R.id.chose_item1_clo);
-        item2_clo = (TextView) view.findViewById(R.id.chose_item2_clo);
-        item3_clo = (TextView) view.findViewById(R.id.chose_item3_clo);
-        item4_clo = (TextView) view.findViewById(R.id.chose_item4_clo);
-        item5_clo = (TextView) view.findViewById(R.id.chose_item5_clo);
-        item6_clo = (TextView) view.findViewById(R.id.chose_item6_clo);
+        item1_clo = (TextView) findViewById(R.id.chose_item1_clo);
+        item2_clo = (TextView) findViewById(R.id.chose_item2_clo);
+        item3_clo = (TextView) findViewById(R.id.chose_item3_clo);
+        item4_clo = (TextView) findViewById(R.id.chose_item4_clo);
+        item5_clo = (TextView) findViewById(R.id.chose_item5_clo);
+        item6_clo = (TextView) findViewById(R.id.chose_item6_clo);
 
         list_clo = new ArrayList<>();
         list_clo.add(item1_clo);
@@ -170,12 +166,12 @@ public class Chose extends Fragment implements View.OnClickListener {
         list_clo.add(item5_clo);
         list_clo.add(item6_clo);
 
-        item1_layout = view.findViewById(R.id.chose_item1_layout);
-        item2_layout = view.findViewById(R.id.chose_item2_layout);
-        item3_layout = view.findViewById(R.id.chose_item3_layout);
-        item4_layout = view.findViewById(R.id.chose_item4_layout);
-        item5_layout = view.findViewById(R.id.chose_item5_layout);
-        item6_layout = view.findViewById(R.id.chose_item6_layout);
+        item1_layout = findViewById(R.id.chose_item1_layout);
+        item2_layout = findViewById(R.id.chose_item2_layout);
+        item3_layout = findViewById(R.id.chose_item3_layout);
+        item4_layout = findViewById(R.id.chose_item4_layout);
+        item5_layout = findViewById(R.id.chose_item5_layout);
+        item6_layout = findViewById(R.id.chose_item6_layout);
 
         item1_layout.setOnClickListener(this);
         item2_layout.setOnClickListener(this);
@@ -202,26 +198,25 @@ public class Chose extends Fragment implements View.OnClickListener {
 
         back.setOnClickListener(this);
 
-        initKeybord(view);
+        initKeybord();
 
     }
 
-    private void initKeybord(View view) {
-        keyitem1 = (TextView) view.findViewById(R.id.key_item1);
-        keyitem2 = (TextView) view.findViewById(R.id.key_item2);
-        keyitem3 = (TextView) view.findViewById(R.id.key_item3);
-        keyitem4 = (TextView) view.findViewById(R.id.key_item4);
-        keyitem5 = (TextView) view.findViewById(R.id.key_item5);
-        keyitem6 = (TextView) view.findViewById(R.id.key_item6);
-        keyitem7 = (TextView) view.findViewById(R.id.key_item7);
-        keyitem8 = (TextView) view.findViewById(R.id.key_item8);
-        keyitem9 = (TextView) view.findViewById(R.id.key_item9);
-        keyitem10 = (TextView) view.findViewById(R.id.key_item10);
-        keyitem11 = (TextView) view.findViewById(R.id.key_item11);
-        keyitem12 = (TextView) view.findViewById(R.id.key_item12);
-        keyitem13 = (TextView) view.findViewById(R.id.key_item13);
-        keyitem14 = (TextView) view.findViewById(R.id.key_item14);
-        keyitem15 = (TextView) view.findViewById(R.id.key_item15);
+    private void initKeybord() {
+        keyitem1 = (TextView) findViewById(R.id.key_item1);
+        keyitem2 = (TextView) findViewById(R.id.key_item2);
+        keyitem3 = (TextView) findViewById(R.id.key_item3);
+        keyitem4 = (TextView) findViewById(R.id.key_item4);
+        keyitem5 = (TextView) findViewById(R.id.key_item5);
+        keyitem6 = (TextView) findViewById(R.id.key_item6);
+        keyitem7 = (TextView) findViewById(R.id.key_item7);
+        keyitem8 = (TextView) findViewById(R.id.key_item8);
+        keyitem9 = (TextView) findViewById(R.id.key_item9);
+        keyitem10 = (TextView) findViewById(R.id.key_item10);
+        keyitem11 = (TextView) findViewById(R.id.key_item11);
+        keyitem12 = (TextView) findViewById(R.id.key_item12);
+        keyitem13 = (TextView) findViewById(R.id.key_item13);
+        keyitem15 = (TextView) findViewById(R.id.key_item15);
 
         keyitem1.setOnClickListener(this);
         keyitem2.setOnClickListener(this);
@@ -236,7 +231,6 @@ public class Chose extends Fragment implements View.OnClickListener {
         keyitem11.setOnClickListener(this);
         keyitem12.setOnClickListener(this);
         keyitem13.setOnClickListener(this);
-        keyitem14.setOnClickListener(this);
         // keyitem15.setOnClickListener(this);
     }
 
@@ -366,7 +360,8 @@ public class Chose extends Fragment implements View.OnClickListener {
             case R.id.title_item3:
                 hitKeybord();
                 if (checkAll()) {
-                    Intent intent = new Intent(getActivity(), NumList.class);
+                    Intent intent = new Intent(this, NumList2.class);
+                    intent.putExtra("onlyid",onlyid);
                     intent.putExtra("item1", item1.getText().toString());
                     intent.putExtra("item2", item2.getText().toString());
                     intent.putExtra("item3", item3.getText().toString());
@@ -385,7 +380,7 @@ public class Chose extends Fragment implements View.OnClickListener {
                     intent.putExtra("dao2", dao2_state);
                     intent.putExtra("dao3", dao3_state);
                     intent.putExtra("dao4", dao4_state);
-                    startActivityForResult(intent, 30);
+                    startActivityForResult(intent, 1);
                 } else {
                     showTost(2);
                 }
@@ -408,13 +403,13 @@ public class Chose extends Fragment implements View.OnClickListener {
     private void showTost(int type) {
         switch (type) {
             case 1:
-                Toast.makeText(getActivity(), "不可对“X”或“现”进行此操作！", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "不可对“X”或“现”进行此操作！", Toast.LENGTH_SHORT).show();
                 break;
             case 2:
-                Toast.makeText(getActivity(), "“X”个数大于2或“X”与“现”同时存在！", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "“X”个数大于2或“X”与“现”同时存在！", Toast.LENGTH_LONG).show();
                 break;
             case 3:
-                Toast.makeText(getActivity(), "不可对“现”进行此操作！", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "不可对“现”进行此操作！", Toast.LENGTH_LONG).show();
                 break;
         }
 
@@ -506,7 +501,6 @@ public class Chose extends Fragment implements View.OnClickListener {
 
     private void showKeybord() {
         keybord.setVisibility(View.VISIBLE);
-        ((MainActivity) getActivity()).bottom.setVisibility(View.GONE);
         for (int i = 0; i < list_clo.size(); i++) {
             if (now_position == i) {
                 list_clo.get(i).setVisibility(View.VISIBLE);
@@ -520,7 +514,6 @@ public class Chose extends Fragment implements View.OnClickListener {
 
     private void hitKeybord() {
         keybord.setVisibility(View.GONE);
-        ((MainActivity) getActivity()).bottom.setVisibility(View.VISIBLE);
         for (int i = 0; i < list_clo.size(); i++) {
             list_clo.get(i).setVisibility(View.GONE);
         }
@@ -554,11 +547,5 @@ public class Chose extends Fragment implements View.OnClickListener {
         setBack(bai2, bai2_state);
         setBack(shi2, shi2_state);
         setBack(ge2, ge2_state);
-    }
-
-    public void settitle(String title2) {
-        this.title = title2;
-        if (tv_title2 != null)
-            tv_title2.setText(title2);
     }
 }

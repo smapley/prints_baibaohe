@@ -8,20 +8,20 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.smapley.moni.R;
-import com.smapley.moni.mode.GetZhuangMode;
+import com.smapley.moni.mode.GetZhuangJMode;
 
 import java.util.List;
 
 /**
  * Created by hao on 2015/11/9.
  */
-public class JingCaiAdapter extends BaseAdapter {
+public class MyJingCaiAdapter extends BaseAdapter {
 
-    private List<GetZhuangMode> list;
+    private List<GetZhuangJMode> list;
     private LayoutInflater inflater;
     private Context context;
 
-    public JingCaiAdapter(Context context, List<GetZhuangMode> list) {
+    public MyJingCaiAdapter(Context context, List<GetZhuangJMode> list) {
         this.list = list;
         this.context = context;
         inflater = LayoutInflater.from(context);
@@ -44,10 +44,10 @@ public class JingCaiAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        final GetZhuangMode mode = list.get(position);
+        final GetZhuangJMode mode = list.get(position);
         ViewHolder viewHolder = null;
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.list_jingcai_item, null);
+            convertView = inflater.inflate(R.layout.list_myjingcai_item, null);
             viewHolder = new ViewHolder();
             viewHolder.biaoti = (TextView) convertView.findViewById(R.id.biaoti);
             viewHolder.jiami = (TextView) convertView.findViewById(R.id.jiami);
@@ -56,18 +56,27 @@ public class JingCaiAdapter extends BaseAdapter {
             viewHolder.yiya = (TextView) convertView.findViewById(R.id.yiya);
             viewHolder.bianhao = (TextView) convertView.findViewById(R.id.bianhao);
             viewHolder.type = (TextView) convertView.findViewById(R.id.type);
+            viewHolder.zhuangtai = (TextView) convertView.findViewById(R.id.zhuangtai);
+            viewHolder.zhongjiangzhe = (TextView) convertView.findViewById(R.id.zhongjiangzhe);
+            viewHolder.kaijiang = (TextView) convertView.findViewById(R.id.kaijiang);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
         viewHolder.biaoti.setText(mode.getBiaoti());
-        viewHolder.jiami.setText(mode.getQx() == 1 ? "密" : "");
-        viewHolder.danzhu.setText("单注"+mode.getDan()+"元");
-        viewHolder.peilv.setText("赔率 1："+mode.getPei());
-        viewHolder.yiya.setText("已押"+mode.getZhu()+"注");
-        viewHolder.bianhao.setText("编号："+mode.getOnlyid());
+        if (mode.getMima() != null)
+            viewHolder.jiami.setText(mode.getMima());
+        viewHolder.danzhu.setText("单注" + mode.getDan() + "元");
+        viewHolder.peilv.setText("赔率 1：" + mode.getPei());
+        viewHolder.yiya.setText("已押" + mode.getZhu() + "注");
+        viewHolder.bianhao.setText("编号：" + mode.getOnlyid());
+        viewHolder.kaijiang.setText("开奖号码：" + mode.getJiang());
         viewHolder.type.setText(mode.getType());
+        viewHolder.zhuangtai.setText(mode.getZt() == 0 ? "未中" : "已中");
+        if (mode.getWinner() != null) {
+            viewHolder.zhongjiangzhe.setText(mode.getWinner());
+        }
 
 
         return convertView;
@@ -81,5 +90,8 @@ public class JingCaiAdapter extends BaseAdapter {
         TextView yiya;
         TextView bianhao;
         TextView type;
+        TextView zhuangtai;
+        TextView zhongjiangzhe;
+        TextView kaijiang;
     }
 }

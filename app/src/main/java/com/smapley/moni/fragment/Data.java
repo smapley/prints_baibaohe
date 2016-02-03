@@ -6,11 +6,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.smapley.moni.R;
 import com.smapley.moni.activity.AddZhuang;
+import com.smapley.moni.activity.JingCai;
 import com.smapley.moni.adapter.JingCaiAdapter;
 import com.smapley.moni.http.service.GetZhuangService;
 import com.smapley.moni.mode.GetZhuangMode;
@@ -39,10 +41,27 @@ public class Data extends Fragment {
         return view;
     }
 
+    public void getData(){
+        getZhuangService.load();
+    }
+
     private void initView(View view) {
         listView = (ListView) view.findViewById(R.id.listView);
         adapter=new JingCaiAdapter(getActivity(),listData);
         listView.setAdapter(adapter);
+        listView.setDivider(null);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent=new Intent(getActivity(), JingCai.class);
+                intent.putExtra("onlyid",listData.get(i).getOnlyid());
+                intent.putExtra("pei",listData.get(i).getPei());
+                intent.putExtra("gold",listData.get(i).getDan());
+                intent.putExtra("type",listData.get(i).getType());
+                startActivity(intent);
+            }
+        });
 
         title1=(TextView)view.findViewById(R.id.title_item1);
         title2=(TextView)view.findViewById(R.id.title_item2);
@@ -52,8 +71,8 @@ public class Data extends Fragment {
         title3.setText("添加");
         title3.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity(), AddZhuang.class));
+            public void onClick(View view){
+                startActivityForResult(new Intent(getActivity(), AddZhuang.class),20);
             }
         });
 

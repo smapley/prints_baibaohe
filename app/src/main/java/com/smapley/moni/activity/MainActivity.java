@@ -78,7 +78,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     public static int position = 1;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -176,10 +175,12 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
         viewPager.setCurrentItem(num);
     }
+
     private void changeTitle(String title2) {
         chose.settitle(title2);
         set.settitle(title2);
     }
+
     private void initPrint() {
         // 初始化字符串资源
         InitGlobalString();
@@ -207,8 +208,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     public void connectBT() {
         try {
             String address = sp_user.getString("address", "");
-            if (address != null && !address.isEmpty() ) {
-                if(!WorkService.workThread.isConnected()) {
+            if (address != null && !address.isEmpty()) {
+                if (!WorkService.workThread.isConnected()) {
                     BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
                     if (null != adapter) {
                         if (adapter.isEnabled()) {
@@ -227,7 +228,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                     }
                 }
 
-            }else{
+            } else {
                 Toast.makeText(MainActivity.this, "请先手动连接一次打印机！", Toast.LENGTH_SHORT).show();
 
             }
@@ -496,7 +497,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                     try {
                         dialog.dismiss();
                         Detail.dialog.dismiss();
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                     int result = msg.arg1;
@@ -562,7 +563,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     }
 
 
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -571,14 +571,20 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
-            viewPagerGo(0);
-            position = 1;
-            String result = data.getStringExtra("data");
-            print.mhandler.obtainMessage(-1, result).sendToTarget();
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+        switch (resultCode) {
+            case 1:
+                data.getData();
+                break;
+            case 2:
+                viewPagerGo(0);
+                position = 1;
+                String result = intent.getStringExtra("data");
+                print.mhandler.obtainMessage(-1, result).sendToTarget();
+                break;
         }
+
     }
 
     @Override

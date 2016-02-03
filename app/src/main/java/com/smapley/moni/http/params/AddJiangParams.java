@@ -3,6 +3,7 @@ package com.smapley.moni.http.params;
 
 import com.smapley.moni.util.MyData;
 
+import org.xutils.common.util.LogUtil;
 import org.xutils.http.RequestParams;
 
 /**
@@ -16,5 +17,10 @@ public class AddJiangParams extends RequestParams {
         addBodyParameter("mi", mi);
         addBodyParameter("onlyid", onlyid);
         addBodyParameter("shuzu", shuzu);
+        try {
+            LogUtil.d(toJSONString());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

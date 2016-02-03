@@ -14,7 +14,7 @@ public class GetZhuangJMode {
     private String mima;
     private String jiang;
     private String winner;
-    private String zt;
+    private int zt;
 
     public String getBiaoti() {
         return biaoti;
@@ -88,11 +88,11 @@ public class GetZhuangJMode {
         this.winner = winner;
     }
 
-    public String getZt() {
+    public int getZt() {
         return zt;
     }
 
-    public void setZt(String zt) {
+    public void setZt(int zt) {
         this.zt = zt;
     }
 }
