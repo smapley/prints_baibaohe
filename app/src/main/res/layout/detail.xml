@@ -6,50 +6,16 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/detail_delect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/lin1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignTop="@+id/lin1"
-        android:gravity="center"
-        android:padding="10dp"
-        android:text="删除"
-        android:textColor="@color/black"
-        android:textSize="18sp" />
+    <include
+        android:id="@+id/title"
+        layout="@layout/title"/>
 
-    <LinearLayout
-        android:id="@+id/lin1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="8dp">
 
-        <TextView
-            android:id="@+id/detail_item1"
-            style="@style/data_text"
-            android:text="明细"
-            android:textSize="18sp"/>
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/re_print"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/lin1"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/lin1"
-        android:gravity="center"
-        android:padding="10dp"
-        android:text="重打"
-        android:textColor="@color/black"
-        android:textSize="18sp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0.3dp"
-        android:layout_below="@+id/lin1"
+        android:layout_below="@+id/title"
         android:background="@color/gray" />
 
 
@@ -57,7 +23,7 @@
         android:id="@+id/layout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/lin1"
+        android:layout_below="@+id/title"
         android:orientation="vertical">
 
         <LinearLayout

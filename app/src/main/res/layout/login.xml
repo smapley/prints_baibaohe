@@ -15,15 +15,7 @@
         android:textColor="@color/white"
         android:textSize="@dimen/tag_textsize" />
 
-    <TextView
-        android:id="@+id/login_back"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
-        android:gravity="center"
-        android:text="@string/back"
-        android:textColor="@color/white"
-        android:textSize="@dimen/tag_textsize" />
+
 
     <LinearLayout
         android:id="@+id/login_layout"

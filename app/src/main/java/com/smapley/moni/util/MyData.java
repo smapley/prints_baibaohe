@@ -50,6 +50,10 @@ public class MyData {
     public static final String URL_tuimaG3 = BASE_URL + "tuimaG3.php";
     public static final String URL_getHezhuang = BASE_URL + "getHezhuang.php";
     public static final String URL_addHezhuang = BASE_URL + "addHezhuang.php";
+    public static final String URL_addChongzhi = BASE_URL + "addChongzhi.php";
+    public static final String URL_fangjianmima = BASE_URL + "fangjianmima.php";
+    public final static String URL_ADDGOLD = BASE_URL + "addGold.php";
+
 
     /**
      * 获取服务器加密码

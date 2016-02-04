@@ -9,8 +9,6 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.ListView;
@@ -24,12 +22,13 @@ import com.smapley.moni.R;
 import com.smapley.moni.adapter.PrintAdapter2;
 import com.smapley.moni.adapter.TingyYaAdapter;
 import com.smapley.moni.http.params.AddJiangParams;
+import com.smapley.moni.http.params.GetJinParams;
 import com.smapley.moni.http.service.AddJiangService;
+import com.smapley.moni.http.service.GetJinService;
 import com.smapley.moni.listview.SwipeMenu;
 import com.smapley.moni.listview.SwipeMenuCreator;
 import com.smapley.moni.listview.SwipeMenuItem;
 import com.smapley.moni.listview.SwipeMenuListView;
-import com.smapley.moni.util.HttpUtils;
 import com.smapley.moni.util.MyData;
 
 import java.util.ArrayList;
@@ -56,7 +55,6 @@ public class JingCai extends Activity implements View.OnClickListener {
     private TextView keyitem1;
     private TextView keyitem2;
     private TextView keyitem3;
-    private TextView keyitem4;
     private TextView keyitem5;
     private TextView keyitem6;
     private TextView keyitem7;
@@ -117,7 +115,7 @@ public class JingCai extends Activity implements View.OnClickListener {
         dataList.clear();
         dataList.add(baseMap);
         initView();
-        getData();
+        getJinService.load(new GetJinParams(MyData.UserName));
     }
 
 
@@ -145,11 +143,14 @@ public class JingCai extends Activity implements View.OnClickListener {
 
                 } else if (tingYa.getText().equals(getString(R.string.tingya))) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(JingCai.this);
-                    builder.setMessage("是否清空失败的号码？");
+                    builder.setMessage("是否清空全部号码？");
                     builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             dataList1.clear();
+                            dataList.clear();
+                            dataList.add(baseMap);
+                            adapter.notifyDataSetChanged();
                             adapter1.notifyDataSetChanged();
                         }
                     });
@@ -173,7 +174,7 @@ public class JingCai extends Activity implements View.OnClickListener {
         listView1 = (ListView) findViewById(R.id.list1);
         //  tv_title1.setText("快选");
         tv_title2.setText(title + yyed);
-        tv_title3.setText("下注");
+        tv_title3.setText("开奖");
 //        tv_title1.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -225,7 +226,6 @@ public class JingCai extends Activity implements View.OnClickListener {
         keyitem1 = (TextView) findViewById(R.id.key_item1);
         keyitem2 = (TextView) findViewById(R.id.key_item2);
         keyitem3 = (TextView) findViewById(R.id.key_item3);
-        keyitem4 = (TextView) findViewById(R.id.key_item4);
         keyitem5 = (TextView) findViewById(R.id.key_item5);
         keyitem6 = (TextView) findViewById(R.id.key_item6);
         keyitem7 = (TextView) findViewById(R.id.key_item7);
@@ -242,7 +242,6 @@ public class JingCai extends Activity implements View.OnClickListener {
         keyitem1.setOnClickListener(this);
         keyitem2.setOnClickListener(JingCai.this);
         keyitem3.setOnClickListener(this);
-        keyitem4.setOnClickListener(this);
         keyitem5.setOnClickListener(this);
         keyitem6.setOnClickListener(this);
         keyitem7.setOnClickListener(this);
@@ -320,9 +319,6 @@ public class JingCai extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.key_item4:
-
-                break;
             case R.id.key_item8:
                 if (dao == 0) {
                     tag.setText("倒");
@@ -385,6 +381,7 @@ public class JingCai extends Activity implements View.OnClickListener {
     private AddJiangService addJiangService = new AddJiangService() {
         @Override
         public void Succ(String data) {
+            getJinService.load(new GetJinParams(MyData.UserName));
             int result = JSON.parseObject(data, new TypeReference<Integer>() {
             });
             if (result > 0) {
@@ -400,55 +397,15 @@ public class JingCai extends Activity implements View.OnClickListener {
         }
     };
 
-    public void getData() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                HashMap map = new HashMap();
-                map.put("user1", MyData.UserName);
-                mhandler.obtainMessage(GETDATA, HttpUtils.updata(map, MyData.URL_GETJILU1)).sendToTarget();
-            }
-        }).start();
-
-
-    }
-
-
-    public Handler mhandler = new Handler() {
+    private GetJinService getJinService=new GetJinService() {
         @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            try {
-                dialog.dismiss();
-                switch (msg.what) {
-                    case GETDATA:
-                        Map map1 = JSON.parseObject(msg.obj.toString(), new TypeReference<Map>() {
-                        });
-
-                        if (Integer.parseInt(map1.get("count").toString()) > 0) {
-                            qishu = map1.get("qishu").toString();
-                            yyed = map1.get("yyed1").toString();
-                            tv_title2.setText(title + yyed);
-
-
-                        } else if (Integer.parseInt(map1.get("count").toString()) == 0) {
-                            dataList.clear();
-                            dataList.add(baseMap);
-                            adapter.notifyDataSetChanged();
-                            yyed = map1.get("yyed1").toString();
-                            tv_title2.setText(title + yyed);
-                            qishu = map1.get("qishu").toString();
-                        }
-
-
-                        break;
-
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        public void Succ(String data) {
+            Map map=JSON.parseObject(data,new TypeReference<Map>(){});
+            tv_title2.setText("金币："+map.get("gold"));
         }
     };
+
+
 
     private int dp2px(int dp) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,

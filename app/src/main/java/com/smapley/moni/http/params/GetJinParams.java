@@ -10,10 +10,9 @@ import org.xutils.http.RequestParams;
  */
 public class GetJinParams extends RequestParams {
 
-    public GetJinParams(String user1,String mi) {
+    public GetJinParams(String user1) {
         super(MyData.URL_getJin);
         addBodyParameter("user1",user1);
-        addBodyParameter("mi",mi);
     }
 
 }

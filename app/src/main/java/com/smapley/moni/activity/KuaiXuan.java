@@ -69,7 +69,6 @@ public class KuaiXuan extends Activity implements View.OnClickListener {
     private TextView keyitem1;
     private TextView keyitem2;
     private TextView keyitem3;
-    private TextView keyitem4;
     private TextView keyitem5;
     private TextView keyitem6;
     private TextView keyitem7;
@@ -206,7 +205,6 @@ public class KuaiXuan extends Activity implements View.OnClickListener {
         keyitem1 = (TextView) findViewById(R.id.key_item1);
         keyitem2 = (TextView) findViewById(R.id.key_item2);
         keyitem3 = (TextView) findViewById(R.id.key_item3);
-        keyitem4 = (TextView) findViewById(R.id.key_item4);
         keyitem5 = (TextView) findViewById(R.id.key_item5);
         keyitem6 = (TextView) findViewById(R.id.key_item6);
         keyitem7 = (TextView) findViewById(R.id.key_item7);
@@ -221,7 +219,6 @@ public class KuaiXuan extends Activity implements View.OnClickListener {
         keyitem1.setOnClickListener(this);
         keyitem2.setOnClickListener(this);
         keyitem3.setOnClickListener(this);
-        keyitem4.setOnClickListener(this);
         keyitem5.setOnClickListener(this);
         keyitem6.setOnClickListener(this);
         keyitem7.setOnClickListener(this);

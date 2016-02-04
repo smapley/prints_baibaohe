@@ -20,9 +20,10 @@
             android:layout_width="match_parent"
             android:layout_height="40dp">
 
-            <TextView style="@style/hezhuang_text" />
+            <Switch style="@style/hezhuang_text" />
 
-            <TextView style="@style/hezhuang_text" />
+            <TextView style="@style/hezhuang_text"
+                android:text="限额"/>
 
             <TextView
                 style="@style/hezhuang_text"

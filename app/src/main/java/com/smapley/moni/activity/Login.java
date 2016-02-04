@@ -82,6 +82,7 @@ public class Login extends Activity {
     }
 
     public void checkLogin(View view) {
+        log_st_usernmae=log_et_username.getText().toString();
         if (log_st_usernmae != null && !log_st_usernmae.equals("")) {
             log_st_password = log_et_password.getText().toString();
             if (log_st_password != null && !log_st_password.equals("")) {

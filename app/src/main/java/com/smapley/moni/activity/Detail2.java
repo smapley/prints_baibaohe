@@ -47,6 +47,7 @@ public class Detail2 extends Activity {
 
     public static Dialog dialog;
 
+    public TextView item2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +66,10 @@ public class Detail2 extends Activity {
 
 
     private void initView() {
+
+        item2=(TextView)findViewById(R.id.title_item2);
+        item2.setText("合庄明细");
+
         listView = (SwipeMenuListView) findViewById(R.id.detail_list);
         listView.setDivider(null);
 

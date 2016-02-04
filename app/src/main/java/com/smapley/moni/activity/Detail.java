@@ -74,6 +74,8 @@ public class Detail extends Activity {
 
     public static List<Map> removeList = new ArrayList<>();
     private TextView delect;
+    private TextView item2;
+    private TextView item3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,8 +143,11 @@ public class Detail extends Activity {
 
     private void initView() {
 
+        item2=(TextView)findViewById(R.id.title_item2);
+        item2.setText("明细");
         checkBox = (CheckBox) findViewById(R.id.details_check);
-        delect = (TextView) findViewById(R.id.detail_delect);
+        delect = (TextView) findViewById(R.id.title_item1);
+        delect.setText("退码");
 
         delect.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -192,7 +197,8 @@ public class Detail extends Activity {
             }
         });
 
-        re_print = (TextView) findViewById(R.id.re_print);
+        re_print = (TextView) findViewById(R.id.title_item3);
+        re_print.setText("重打");
         re_print.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

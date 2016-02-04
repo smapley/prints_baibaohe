@@ -16,6 +16,7 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:background="@drawable/toubu"
         android:orientation="horizontal">
 
         <TextView
@@ -23,7 +24,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:gravity="right"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -34,7 +35,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -44,7 +45,7 @@
             android:layout_height="50dp"
             android:layout_marginRight="10dp"
             android:gravity="center"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
 

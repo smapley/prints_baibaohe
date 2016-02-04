@@ -6,26 +6,16 @@
     android:background="@color/white"
     android:orientation="vertical">
 
+    <include
+        android:id="@+id/title"
+        layout="@layout/title"/>
 
-    <LinearLayout
-        android:id="@+id/lin1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="8dp">
-
-        <TextView
-            android:id="@+id/detail_item1"
-            style="@style/data_text"
-            android:text="合庄明细"
-            android:textSize="18sp"/>
-    </LinearLayout>
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0.3dp"
-        android:layout_below="@+id/lin1"
+        android:layout_below="@+id/title"
         android:background="@color/gray" />
 
 
@@ -33,9 +23,8 @@
         android:id="@+id/layout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/lin1"
+        android:layout_below="@+id/title"
         android:orientation="vertical">
-
         <LinearLayout
             android:id="@+id/lin2"
             android:layout_width="match_parent"

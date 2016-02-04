@@ -146,10 +146,12 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             case R.id.bottom_item3:
                 viewPagerGo(2);
                 position = 3;
+                data.getData();
                 break;
             case R.id.bottom_item4:
                 viewPagerGo(3);
                 position = 4;
+                set.getData();
                 break;
         }
     }

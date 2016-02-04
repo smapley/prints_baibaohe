@@ -7,8 +7,8 @@
     android:background="@color/bac1"
     android:orientation="vertical"
     android:visibility="gone"
-    tools:visibility="visible"
-    tools:showIn="@layout/layout_keybords">
+    tools:showIn="@layout/layout_keybords"
+    tools:visibility="visible">
 
 
     <TextView
@@ -20,88 +20,100 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/key_item9"
-            style="@style/keybord"
-            android:text="@string/print_item10" />
-
-        <TextView
-            android:layout_width="0.5dp"
-            android:layout_height="match_parent"
-            android:background="@color/gray" />
-
-        <TextView
-            android:id="@+id/key_item10"
-            style="@style/keybord"
-            android:text="@string/print_item11" />
-
-        <TextView
-            android:layout_width="0.5dp"
-            android:layout_height="match_parent"
-            android:background="@color/gray" />
-
-        <TextView
-            android:id="@+id/key_item11"
-            style="@style/keybord"
-            android:text="@string/print_item12" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:orientation="vertical">
 
 
-        <TextView
-            android:layout_width="0.5dp"
-            android:layout_height="match_parent"
-            android:background="@color/gray" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/key_item4"
-            style="@style/keybord"
-            android:text="@string/print_item5" />
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/key_item9"
+                    style="@style/keybord"
+                    android:text="@string/print_item10" />
+
+                <TextView
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray" />
+
+                <TextView
+                    android:id="@+id/key_item10"
+                    style="@style/keybord"
+                    android:text="@string/print_item11" />
+
+                <TextView
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray" />
+
+                <TextView
+                    android:id="@+id/key_item11"
+                    style="@style/keybord"
+                    android:text="@string/print_item12" />
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/gray" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+            </LinearLayout>
 
 
-        <TextView
-            android:id="@+id/key_item5"
-            style="@style/keybord"
-            android:text="@string/print_item6" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/gray" />
 
-        <TextView
-            android:layout_width="0.5dp"
-            android:layout_height="match_parent"
-            android:background="@color/gray" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/key_item6"
-            style="@style/keybord"
-            android:text="@string/print_item7" />
 
-        <TextView
-            android:layout_width="0.5dp"
-            android:layout_height="match_parent"
-            android:background="@color/gray" />
+                <TextView
+                    android:id="@+id/key_item5"
+                    style="@style/keybord"
+                    android:text="@string/print_item6" />
 
-        <TextView
-            android:id="@+id/key_item7"
-            style="@style/keybord"
-            android:text="@string/print_item8" />
+                <TextView
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray" />
 
-        <TextView
-            android:layout_width="0.5dp"
-            android:layout_height="match_parent"
-            android:background="@color/gray" />
+                <TextView
+                    android:id="@+id/key_item6"
+                    style="@style/keybord"
+                    android:text="@string/print_item7" />
 
-        <TextView
-            android:id="@+id/key_item8"
-            style="@style/keybord"
-            android:text="@string/print_item9" />
+                <TextView
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray" />
+
+                <TextView
+                    android:id="@+id/key_item7"
+                    style="@style/keybord"
+                    android:text="@string/print_item8" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_weight="0.75">
+
+            <TextView
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/gray" />
+
+            <TextView
+                android:id="@+id/key_item8"
+                style="@style/keybord"
+                android:layout_height="100dp"
+
+                android:text="倒" />
+        </LinearLayout>
     </LinearLayout>
 
     <TextView
@@ -161,7 +173,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
 
 
                 <TextView
