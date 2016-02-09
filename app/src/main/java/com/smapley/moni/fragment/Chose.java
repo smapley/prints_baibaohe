@@ -31,6 +31,7 @@ public class Chose extends Fragment implements View.OnClickListener {
     private TextView item4;
     private TextView item5;
     private TextView item6;
+    private TextView item7;
 
     private TextView qian;
     private TextView bai;
@@ -41,6 +42,11 @@ public class Chose extends Fragment implements View.OnClickListener {
     private TextView bai2;
     private TextView shi2;
     private TextView ge2;
+
+    private TextView qian3;
+    private TextView bai3;
+    private TextView shi3;
+    private TextView ge3;
 
     private TextView dao1;
     private TextView dao2;
@@ -53,6 +59,7 @@ public class Chose extends Fragment implements View.OnClickListener {
     private View item4_layout;
     private View item5_layout;
     private View item6_layout;
+    private View item7_layout;
 
     private TextView item1_clo;
     private TextView item2_clo;
@@ -60,6 +67,7 @@ public class Chose extends Fragment implements View.OnClickListener {
     private TextView item4_clo;
     private TextView item5_clo;
     private TextView item6_clo;
+    private TextView item7_clo;
 
     private LinearLayout keybord;
 
@@ -97,6 +105,11 @@ public class Chose extends Fragment implements View.OnClickListener {
     private boolean shi2_state = false;
     private boolean ge2_state = false;
 
+    private boolean qian3_state = false;
+    private boolean bai3_state = false;
+    private boolean shi3_state = false;
+    private boolean ge3_state = false;
+
     private boolean dao1_state = false;
     private boolean dao2_state = false;
     private boolean dao3_state = false;
@@ -104,7 +117,7 @@ public class Chose extends Fragment implements View.OnClickListener {
 
 
     private int now_position = 0;
-    private String title="";
+    private String title = "";
 
 
     @Override
@@ -117,7 +130,7 @@ public class Chose extends Fragment implements View.OnClickListener {
     private void initView(View view) {
 
         tv_title2 = (TextView) view.findViewById(R.id.title_item2);
-        tv_title3=(TextView)view.findViewById(R.id.title_item3);
+        tv_title3 = (TextView) view.findViewById(R.id.title_item3);
         tv_title3.setText("生成");
         tv_title3.setOnClickListener(this);
         tv_title2.setText(title);
@@ -127,6 +140,7 @@ public class Chose extends Fragment implements View.OnClickListener {
         item4 = (TextView) view.findViewById(R.id.chose_item4);
         item5 = (TextView) view.findViewById(R.id.chose_item5);
         item6 = (TextView) view.findViewById(R.id.chose_item6);
+        item7 = (TextView) view.findViewById(R.id.chose_item7);
 
         list_item = new ArrayList<>();
         list_item.add(item1);
@@ -135,6 +149,7 @@ public class Chose extends Fragment implements View.OnClickListener {
         list_item.add(item4);
         list_item.add(item5);
         list_item.add(item6);
+        list_item.add(item7);
 
         qian = (TextView) view.findViewById(R.id.chose_qian);
         bai = (TextView) view.findViewById(R.id.chose_bai);
@@ -145,6 +160,11 @@ public class Chose extends Fragment implements View.OnClickListener {
         bai2 = (TextView) view.findViewById(R.id.chose_bai2);
         shi2 = (TextView) view.findViewById(R.id.chose_shi2);
         ge2 = (TextView) view.findViewById(R.id.chose_ge2);
+
+        qian3 = (TextView) view.findViewById(R.id.chose_qian3);
+        bai3 = (TextView) view.findViewById(R.id.chose_bai3);
+        shi3 = (TextView) view.findViewById(R.id.chose_shi3);
+        ge3 = (TextView) view.findViewById(R.id.chose_ge3);
 
         dao1 = (TextView) view.findViewById(R.id.chose_dao1);
         dao2 = (TextView) view.findViewById(R.id.chose_dao2);
@@ -161,6 +181,7 @@ public class Chose extends Fragment implements View.OnClickListener {
         item4_clo = (TextView) view.findViewById(R.id.chose_item4_clo);
         item5_clo = (TextView) view.findViewById(R.id.chose_item5_clo);
         item6_clo = (TextView) view.findViewById(R.id.chose_item6_clo);
+        item7_clo = (TextView) view.findViewById(R.id.chose_item7_clo);
 
         list_clo = new ArrayList<>();
         list_clo.add(item1_clo);
@@ -169,6 +190,7 @@ public class Chose extends Fragment implements View.OnClickListener {
         list_clo.add(item4_clo);
         list_clo.add(item5_clo);
         list_clo.add(item6_clo);
+        list_clo.add(item7_clo);
 
         item1_layout = view.findViewById(R.id.chose_item1_layout);
         item2_layout = view.findViewById(R.id.chose_item2_layout);
@@ -176,6 +198,7 @@ public class Chose extends Fragment implements View.OnClickListener {
         item4_layout = view.findViewById(R.id.chose_item4_layout);
         item5_layout = view.findViewById(R.id.chose_item5_layout);
         item6_layout = view.findViewById(R.id.chose_item6_layout);
+        item7_layout = view.findViewById(R.id.chose_item7_layout);
 
         item1_layout.setOnClickListener(this);
         item2_layout.setOnClickListener(this);
@@ -183,6 +206,7 @@ public class Chose extends Fragment implements View.OnClickListener {
         item4_layout.setOnClickListener(this);
         item5_layout.setOnClickListener(this);
         item6_layout.setOnClickListener(this);
+        item7_layout.setOnClickListener(this);
 
         qian.setOnClickListener(this);
         bai.setOnClickListener(this);
@@ -193,6 +217,11 @@ public class Chose extends Fragment implements View.OnClickListener {
         bai2.setOnClickListener(this);
         shi2.setOnClickListener(this);
         ge2.setOnClickListener(this);
+
+        qian3.setOnClickListener(this);
+        bai3.setOnClickListener(this);
+        shi3.setOnClickListener(this);
+        ge3.setOnClickListener(this);
 
         dao1.setOnClickListener(this);
         dao2.setOnClickListener(this);
@@ -240,12 +269,14 @@ public class Chose extends Fragment implements View.OnClickListener {
         // keyitem15.setOnClickListener(this);
     }
 
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.chose_item1_layout:
                 now_position = 0;
                 showKeybord();
+
                 break;
             case R.id.chose_item2_layout:
                 now_position = 1;
@@ -265,6 +296,10 @@ public class Chose extends Fragment implements View.OnClickListener {
                 break;
             case R.id.chose_item6_layout:
                 now_position = 5;
+                showKeybord();
+                break;
+            case R.id.chose_item7_layout:
+                now_position = 6;
                 showKeybord();
                 break;
             case R.id.chose_qian:
@@ -331,6 +366,38 @@ public class Chose extends Fragment implements View.OnClickListener {
                     showTost(1);
                 }
                 break;
+            case R.id.chose_qian3:
+                if (check(0)) {
+                    qian3_state = !qian3_state;
+                    setBack(view, qian3_state);
+                } else {
+                    showTost(1);
+                }
+                break;
+            case R.id.chose_bai3:
+                if (check(1)) {
+                    bai3_state = !bai3_state;
+                    setBack(view, bai3_state);
+                } else {
+                    showTost(1);
+                }
+                break;
+            case R.id.chose_shi3:
+                if (check(2)) {
+                    shi3_state = !shi3_state;
+                    setBack(view, shi3_state);
+                } else {
+                    showTost(1);
+                }
+                break;
+            case R.id.chose_ge3:
+                if (check(3)) {
+                    ge3_state = !ge3_state;
+                    setBack(view, ge3_state);
+                } else {
+                    showTost(1);
+                }
+                break;
             case R.id.chose_dao1:
                 if (check2(3)) {
                     dao1_state = !dao1_state;
@@ -373,6 +440,7 @@ public class Chose extends Fragment implements View.OnClickListener {
                     intent.putExtra("item4", item4.getText().toString());
                     intent.putExtra("item5", item5.getText().toString());
                     intent.putExtra("item6", item6.getText().toString());
+                    intent.putExtra("item7", item7.getText().toString());
                     intent.putExtra("qian", qian_state);
                     intent.putExtra("bai", bai_state);
                     intent.putExtra("shi", shi_state);
@@ -381,6 +449,10 @@ public class Chose extends Fragment implements View.OnClickListener {
                     intent.putExtra("bai2", bai2_state);
                     intent.putExtra("shi2", shi2_state);
                     intent.putExtra("ge2", ge2_state);
+                    intent.putExtra("qian3", qian3_state);
+                    intent.putExtra("bai3", bai3_state);
+                    intent.putExtra("shi3", shi3_state);
+                    intent.putExtra("ge3", ge3_state);
                     intent.putExtra("dao1", dao1_state);
                     intent.putExtra("dao2", dao2_state);
                     intent.putExtra("dao3", dao3_state);
@@ -411,7 +483,7 @@ public class Chose extends Fragment implements View.OnClickListener {
                 Toast.makeText(getActivity(), "不可对“X”或“现”进行此操作！", Toast.LENGTH_SHORT).show();
                 break;
             case 2:
-                Toast.makeText(getActivity(), "“X”个数大于2或“X”与“现”同时存在！", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "“X”与“现”同时存在！", Toast.LENGTH_LONG).show();
                 break;
             case 3:
                 Toast.makeText(getActivity(), "不可对“现”进行此操作！", Toast.LENGTH_LONG).show();
@@ -424,21 +496,19 @@ public class Chose extends Fragment implements View.OnClickListener {
     private boolean checkAll() {
         boolean hasX = false;
         boolean hasZ = false;
-        int numX = 0;
         for (int i = 0; i < 4; i++) {
             String data = list_item.get(i).getText().toString();
             for (int j = 0; j < data.length(); j++) {
                 String str = data.substring(j, j + 1);
                 if (str.equals("X")) {
                     hasX = true;
-                    numX++;
                 }
                 if (str.equals("现")) {
                     hasZ = true;
                 }
             }
         }
-        if (numX < 3 && !(hasX && hasZ)) {
+        if (!(hasX && hasZ)) {
             return true;
         } else {
             return false;
@@ -514,6 +584,9 @@ public class Chose extends Fragment implements View.OnClickListener {
                 now_text.setText("");
             } else {
                 list_clo.get(i).setVisibility(View.GONE);
+                if(i<4&&list_item.get(i).getText().equals("")){
+                    list_item.get(i).setText("X");
+                }
             }
         }
     }
@@ -536,7 +609,11 @@ public class Chose extends Fragment implements View.OnClickListener {
 
     public void clearn() {
         for (int i = 0; i < list_item.size(); i++) {
-            list_item.get(i).setText("");
+            if(i<4){
+                list_item.get(i).setText("X");
+            }else {
+                list_item.get(i).setText("");
+            }
         }
         qian_state = false;
         bai_state = false;

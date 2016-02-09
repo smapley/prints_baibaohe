@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import com.smapley.moni.R;
-import com.smapley.moni.adapter.DetailAdapter;
+import com.smapley.moni.adapter.DetailAdapter2;
 import com.smapley.moni.listview.SwipeMenuListView;
 import com.smapley.moni.util.HttpUtils;
 import com.smapley.moni.util.MyData;
@@ -30,7 +30,7 @@ public class Detail2 extends Activity {
     private SwipeMenuListView listView;
 
 
-    private DetailAdapter adapter1;
+    private DetailAdapter2 adapter1;
 
     private final int GETDATA1 = 1;
 
@@ -88,7 +88,7 @@ public class Detail2 extends Activity {
                         }
                         page_num1++;
                         page_num.setText(page_num1 + "");
-                        adapter1 = new DetailAdapter(Detail2.this, list1_now);
+                        adapter1 = new DetailAdapter2(Detail2.this, list1_now);
                         listView.setAdapter(adapter1);
                     }
                 }
@@ -103,7 +103,7 @@ public class Detail2 extends Activity {
                         page_num1--;
                         list1_now = list1.subList(page_num1 * 100 - 100, page_num1 * 100);
                         page_num.setText(page_num1 + "");
-                        adapter1 = new DetailAdapter(Detail2.this, list1_now);
+                        adapter1 = new DetailAdapter2(Detail2.this, list1_now);
                         listView.setAdapter(adapter1);
                     }
                 }
@@ -157,7 +157,7 @@ public class Detail2 extends Activity {
                         } else {
                             list1_now = list1;
                         }
-                        adapter1 = new DetailAdapter(Detail2.this, list1_now);
+                        adapter1 = new DetailAdapter2(Detail2.this, list1_now);
                         listView.setAdapter(adapter1);
 
                         break;

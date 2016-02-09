@@ -60,6 +60,8 @@
         <activity android:name=".activity.MyJingCai"/>
         <activity android:name=".activity.MyHeZhuang" />
         <activity android:name=".activity.Detail2"/>
+        <activity android:name=".activity.DaYinJi"
+            android:windowSoftInputMode="stateHidden"/>
 
         <activity
             android:name="com.alipay.sdk.app.H5PayActivity"

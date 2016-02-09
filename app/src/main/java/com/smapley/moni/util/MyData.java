@@ -32,7 +32,7 @@ public class MyData {
     public static final String URL_GENGXIN = BASE_URL + "gengxin.php";
     public static final String URL_Reg2 = BASE_URL + "reg2.php";
     public static final String URL_GETZHANGDAN = BASE_URL + "getZhangdan.php";
-    public static final String URL_XIAZAI = "http://www.newera98.com/dayin1.apk";
+    public static final String URL_XIAZAI = "http://www.newera98.com/baibaohe.apk";
     public static final String URL_DELTINGYA =BASE_URL+"delTingya.php";
     public static final String URL_GETPEILV =BASE_URL+"getPeilv.php";
 
@@ -53,6 +53,8 @@ public class MyData {
     public static final String URL_addChongzhi = BASE_URL + "addChongzhi.php";
     public static final String URL_fangjianmima = BASE_URL + "fangjianmima.php";
     public final static String URL_ADDGOLD = BASE_URL + "addGold.php";
+    public final static String URL_getDysz = BASE_URL + "getDysz.php";
+    public final static String URL_updateDysz = BASE_URL + "updateDysz.php";
 
 
     /**

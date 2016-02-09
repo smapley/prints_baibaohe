@@ -11,10 +11,11 @@ import org.xutils.http.RequestParams;
  */
 public class AddHezhuangParams extends RequestParams {
 
-    public AddHezhuangParams(String user1, String mi, String item1, String item2,String item3,String item4,String item5,String item6) {
+    public AddHezhuangParams(String user1, String mi,String zt, String item1, String item2,String item3,String item4,String item5,String item6) {
         super(MyData.URL_addHezhuang);
         addBodyParameter("user1", user1);
         addBodyParameter("mi", mi);
+        addBodyParameter("zt", zt);
         addBodyParameter("erdj", item1);
         addBodyParameter("sandj", item2);
         addBodyParameter("sidj", item3);

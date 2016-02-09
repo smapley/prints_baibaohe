@@ -164,8 +164,8 @@ public class JingCai extends Activity implements View.OnClickListener {
         danzhu = (TextView) findViewById(R.id.danzhu);
         peilv = (TextView) findViewById(R.id.peilv);
 
-        peilv.setText("赔率："+pei);
-        danzhu.setText("单注："+gold);
+        peilv.setText("赔率：" + pei);
+        danzhu.setText("单注：" + gold);
 
 
         tv_title1 = (TextView) findViewById(R.id.title_item1);
@@ -384,7 +384,9 @@ public class JingCai extends Activity implements View.OnClickListener {
             getJinService.load(new GetJinParams(MyData.UserName));
             int result = JSON.parseObject(data, new TypeReference<Integer>() {
             });
-            if (result > 0) {
+            if (result == -2) {
+                Toast.makeText(JingCai.this, "金币不足！", Toast.LENGTH_SHORT).show();
+            } else if (result > 0) {
                 Toast.makeText(JingCai.this, "恭喜您，中奖啦！", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(JingCai.this, "很遗憾，就差一点点！", Toast.LENGTH_SHORT).show();
@@ -397,14 +399,14 @@ public class JingCai extends Activity implements View.OnClickListener {
         }
     };
 
-    private GetJinService getJinService=new GetJinService() {
+    private GetJinService getJinService = new GetJinService() {
         @Override
         public void Succ(String data) {
-            Map map=JSON.parseObject(data,new TypeReference<Map>(){});
-            tv_title2.setText("金币："+map.get("gold"));
+            Map map = JSON.parseObject(data, new TypeReference<Map>() {
+            });
+            tv_title2.setText("金币：" + map.get("gold"));
         }
     };
-
 
 
     private int dp2px(int dp) {

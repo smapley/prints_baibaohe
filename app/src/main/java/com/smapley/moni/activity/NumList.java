@@ -42,6 +42,7 @@ public class NumList extends Activity implements View.OnClickListener {
     private String item4;
     private String item5;
     private String item6;
+    private String item7;
 
     private boolean qian;
     private boolean bai;
@@ -52,6 +53,11 @@ public class NumList extends Activity implements View.OnClickListener {
     private boolean bai2;
     private boolean shi2;
     private boolean ge2;
+
+    private boolean qian3;
+    private boolean bai3;
+    private boolean shi3;
+    private boolean ge3;
 
     private boolean dao1;
     private boolean dao2;
@@ -64,6 +70,7 @@ public class NumList extends Activity implements View.OnClickListener {
     private String[] item4s;
     private String[] item5s;
     private String[] item6s;
+    private String[] item7s;
 
 
     private String base = "0123456789";
@@ -82,7 +89,6 @@ public class NumList extends Activity implements View.OnClickListener {
     private TextView bottom_item3;
     private RelativeLayout bottom_item2_layout;
     private View keybord;
-    private TextView back;
     private TextView bottom_item2_ico;
 
     private ProgressDialog dialog;
@@ -102,6 +108,8 @@ public class NumList extends Activity implements View.OnClickListener {
     private TextView keyitem14;
     private TextView keyitem15;
     private boolean hasPoint = false;
+
+    private  TextView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -154,9 +162,35 @@ public class NumList extends Activity implements View.OnClickListener {
         }
     }
 
+    private void create5(String data1, String data2, String data3, String data4) {
+        if (!qian3 && !bai3 && !shi3 && !ge3) {
+            list.add(data1 + data2 + data3 + data4);
+        } else {
+            int num = 0;
+
+            if (qian3) {
+                num = Integer.parseInt(data1);
+            }
+            if (bai3) {
+                num += Integer.parseInt(data2);
+            }
+            if (shi3) {
+                num += Integer.parseInt(data3);
+            }
+            if (ge3) {
+                num += Integer.parseInt(data4);
+            }
+            for (int i = 0; i < item7s.length; i++) {
+                if (num % 10 == Integer.parseInt(item7s[i])) {
+                    list.add(data1 + data2 + data3 + data4);
+                }
+            }
+        }
+    }
+
     private void create4(String data1, String data2, String data3, String data4) {
         if (!qian2 && !bai2 && !shi2 && !ge2) {
-            list.add(data1 + data2 + data3 + data4);
+            create5(data1, data2, data3, data4);
         } else {
             int num = 0;
 
@@ -174,7 +208,8 @@ public class NumList extends Activity implements View.OnClickListener {
             }
             for (int i = 0; i < item6s.length; i++) {
                 if (num % 10 == Integer.parseInt(item6s[i])) {
-                    list.add(data1 + data2 + data3 + data4);
+                    create5(data1, data2, data3, data4);
+
                 }
             }
         }
@@ -183,7 +218,7 @@ public class NumList extends Activity implements View.OnClickListener {
     private void create3(String data1, String data2, String data3, String data4) {
 
         if (!qian && !bai && !shi && !ge) {
-            list.add(data1 + data2 + data3 + data4);
+            create4(data1, data2, data3, data4);
         } else {
             int num = 0;
 
@@ -236,6 +271,7 @@ public class NumList extends Activity implements View.OnClickListener {
         item4s = new String[list_item.get(3).length()];
         item5s = new String[list_item.get(4).length()];
         item6s = new String[list_item.get(5).length()];
+        item7s = new String[list_item.get(6).length()];
         list_items.clear();
         list_items.add(item1s);
         list_items.add(item2s);
@@ -243,6 +279,7 @@ public class NumList extends Activity implements View.OnClickListener {
         list_items.add(item4s);
         list_items.add(item5s);
         list_items.add(item6s);
+        list_items.add(item7s);
 
         for (int i = 0; i < list_item.size(); i++) {
             for (int j = 0; j < list_item.get(i).length(); j++) {
@@ -259,6 +296,7 @@ public class NumList extends Activity implements View.OnClickListener {
         item4 = intent.getStringExtra("item4").length() == 0 ? base : intent.getStringExtra("item4");
         item5 = intent.getStringExtra("item5").length() == 0 ? base : intent.getStringExtra("item5");
         item6 = intent.getStringExtra("item6").length() == 0 ? base : intent.getStringExtra("item6");
+        item7 = intent.getStringExtra("item7").length() == 0 ? base : intent.getStringExtra("item7");
 
 
         list_item.add(item1);
@@ -267,6 +305,7 @@ public class NumList extends Activity implements View.OnClickListener {
         list_item.add(item4);
         list_item.add(item5);
         list_item.add(item6);
+        list_item.add(item7);
 
         qian = intent.getBooleanExtra("qian", false);
         bai = intent.getBooleanExtra("bai", false);
@@ -277,6 +316,11 @@ public class NumList extends Activity implements View.OnClickListener {
         bai2 = intent.getBooleanExtra("bai2", false);
         shi2 = intent.getBooleanExtra("shi2", false);
         ge2 = intent.getBooleanExtra("ge2", false);
+
+        qian3 = intent.getBooleanExtra("qian3", false);
+        bai3 = intent.getBooleanExtra("bai3", false);
+        shi3 = intent.getBooleanExtra("shi3", false);
+        ge3 = intent.getBooleanExtra("ge3", false);
 
         dao1 = intent.getBooleanExtra("dao1", false);
         dao2 = intent.getBooleanExtra("dao2", false);
@@ -292,6 +336,19 @@ public class NumList extends Activity implements View.OnClickListener {
     private void initView() {
         recyclerView = (RecyclerView) findViewById(R.id.numlist_recyclerview);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 4));
+
+        back=(TextView)findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bottom_item2_ico.setVisibility(View.GONE);
+                keybord.setVisibility(View.GONE);
+                if (bottom_item2.getText().toString().equals("")) {
+                    bottom_item2.setText("金额");
+                }
+            }
+        });
+
 
         keyitem1 = (TextView) findViewById(R.id.key_item1);
         keyitem2 = (TextView) findViewById(R.id.key_item2);
@@ -332,7 +389,6 @@ public class NumList extends Activity implements View.OnClickListener {
         bottom_item2_ico = (TextView) findViewById(R.id.table_item1_clo);
         bottom_item3 = (TextView) findViewById(R.id.chose_bottom_item3);
         keybord = findViewById(R.id.print_keybord);
-        back = (TextView) findViewById(R.id.back);
 
         bottom_item3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -355,22 +411,13 @@ public class NumList extends Activity implements View.OnClickListener {
         bottom_item2_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                hasPoint=false;
+                hasPoint = false;
                 bottom_item2.setText("");
                 bottom_item2_ico.setVisibility(View.VISIBLE);
                 keybord.setVisibility(View.VISIBLE);
             }
         });
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                bottom_item2_ico.setVisibility(View.GONE);
-                keybord.setVisibility(View.GONE);
-                if (bottom_item2.getText().toString().equals("")) {
-                    bottom_item2.setText("金额");
-                }
-            }
-        });
+
     }
 
     private void setData(List<String> list) {
@@ -421,14 +468,15 @@ public class NumList extends Activity implements View.OnClickListener {
                 switch (msg.what) {
                     case UPDATA:
                         dialog.dismiss();
-                        Map map= JSON.parseObject(msg.obj.toString(),new TypeReference<Map>(){});
-                        if(Integer.parseInt(map.get("count").toString())>0){
+                        Map map = JSON.parseObject(msg.obj.toString(), new TypeReference<Map>() {
+                        });
+                        if (Integer.parseInt(map.get("count").toString()) > 0) {
                             Intent intent = new Intent();
                             intent.putExtra("data", msg.obj.toString());
                             setResult(2, intent);
                             finish();
-                        }else{
-                            Toast.makeText(NumList.this,"下注失败",Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(NumList.this, "下注失败", Toast.LENGTH_SHORT).show();
                         }
 
                         break;

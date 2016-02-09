@@ -56,7 +56,7 @@ public class KaiJiangAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        String num = mode.getQishu();
+        String num = mode.getJiangnum();
         String nums="";
         for (int i = 0; i < num.length(); i++) {
             nums=nums+" "+num.substring(i,i+1);

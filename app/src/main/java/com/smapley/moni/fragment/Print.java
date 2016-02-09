@@ -313,11 +313,10 @@ public class Print extends Fragment implements View.OnClickListener {
                                 @Override
                                 public void run() {
                                     HashMap map = new HashMap();
-                                    map.put("id", item.get("id").toString());
-                                    map.put("biaoshi", item.get("biaoshi").toString());
+                                    map.put("tuima", item.get("id").toString()+","+item.get("biaoshi").toString());
                                     map.put("user1", MyData.UserName);
                                     map.put("mi", MyData.PassWord);
-                                    mhandler.obtainMessage(DELECT, HttpUtils.updata(map, MyData.URL_TUIMA1)).sendToTarget();
+                                    mhandler.obtainMessage(DELECT, HttpUtils.updata(map, MyData.URL_TUIMA3)).sendToTarget();
                                 }
                             }).start();
 
