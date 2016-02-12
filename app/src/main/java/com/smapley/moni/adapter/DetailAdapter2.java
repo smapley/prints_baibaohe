@@ -56,7 +56,6 @@ public class DetailAdapter2 extends BaseAdapter {
             viewHolder.gold = (TextView) convertView.findViewById(R.id.detail_item_gold);
             viewHolder.pei = (TextView) convertView.findViewById(R.id.detail_item_pei);
             viewHolder.zt = (TextView) convertView.findViewById(R.id.detail_item_zt);
-            viewHolder.allid=(TextView)convertView.findViewById(R.id.detail_item_allid);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -74,7 +73,6 @@ public class DetailAdapter2 extends BaseAdapter {
         viewHolder.gold.setText(map.get("gold"));
         viewHolder.pei.setText(map.get("pei"));
         viewHolder.zt.setText(map.get("zt"));
-        viewHolder.allid.setText("编号："+map.get("allid"));
         if (map.get("zt").equals("已退码")) {
             viewHolder.num.setTextColor(context.getResources().getColor(R.color.red));
             viewHolder.gold.setTextColor(context.getResources().getColor(R.color.red));
@@ -95,6 +93,5 @@ public class DetailAdapter2 extends BaseAdapter {
         TextView gold;
         TextView pei;
         TextView zt;
-        TextView allid;
     }
 }

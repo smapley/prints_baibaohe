@@ -121,7 +121,7 @@ public class Detail2 extends Activity {
                 map.put("user1", MyData.UserName);
                 String url = null;
                 if (num == GETDATA1) {
-                    url = MyData.URL_GETMINGXI;
+                    url = MyData.URL_GETMINGXIHZ;
                 }
                 mhandler.obtainMessage(num, HttpUtils.updata(map, url)).sendToTarget();
             }

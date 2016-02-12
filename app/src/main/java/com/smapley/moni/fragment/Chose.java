@@ -303,100 +303,65 @@ public class Chose extends Fragment implements View.OnClickListener {
                 showKeybord();
                 break;
             case R.id.chose_qian:
-                if (check(0)) {
-                    qian_state = !qian_state;
-                    setBack(view, qian_state);
-                } else {
-                    showTost(1);
-                }
+                qian_state = !qian_state;
+                setBack(view, qian_state);
+                chose(0,0, qian_state);
                 break;
             case R.id.chose_bai:
-                if (check(1)) {
-                    bai_state = !bai_state;
-                    setBack(view, bai_state);
-                } else {
-                    showTost(1);
-                }
+                bai_state = !bai_state;
+                setBack(view, bai_state);
+                chose(0,1, bai_state);
                 break;
             case R.id.chose_shi:
-                if (check(2)) {
-                    shi_state = !shi_state;
-                    setBack(view, shi_state);
-                } else {
-                    showTost(1);
-                }
+                shi_state = !shi_state;
+                setBack(view, shi_state);
+                chose(0,2, shi_state);
                 break;
             case R.id.chose_ge:
-                if (check(3)) {
-                    ge_state = !ge_state;
-                    setBack(view, ge_state);
-                } else {
-                    showTost(1);
-                }
+                ge_state = !ge_state;
+                setBack(view, ge_state);
+                chose(0,3, ge_state);
                 break;
             case R.id.chose_qian2:
-                if (check(0)) {
-                    qian2_state = !qian2_state;
-                    setBack(view, qian2_state);
-                } else {
-                    showTost(1);
-                }
+                qian2_state = !qian2_state;
+                setBack(view, qian2_state);
+                chose(1,0, qian2_state);
                 break;
             case R.id.chose_bai2:
-                if (check(1)) {
-                    bai2_state = !bai2_state;
-                    setBack(view, bai2_state);
-                } else {
-                    showTost(1);
-                }
+                bai2_state = !bai2_state;
+                setBack(view, bai2_state);
+                chose(1,1, bai2_state);
                 break;
             case R.id.chose_shi2:
-                if (check(2)) {
-                    shi2_state = !shi2_state;
-                    setBack(view, shi2_state);
-                } else {
-                    showTost(1);
-                }
+                shi2_state = !shi2_state;
+                setBack(view, shi2_state);
+                chose(1,2, shi2_state);
                 break;
             case R.id.chose_ge2:
-                if (check(3)) {
-                    ge2_state = !ge2_state;
-                    setBack(view, ge2_state);
-                } else {
-                    showTost(1);
-                }
+                ge2_state = !ge2_state;
+                setBack(view, ge2_state);
+                chose(1,3, ge2_state);
                 break;
             case R.id.chose_qian3:
-                if (check(0)) {
-                    qian3_state = !qian3_state;
-                    setBack(view, qian3_state);
-                } else {
-                    showTost(1);
-                }
+                qian3_state = !qian3_state;
+                setBack(view, qian3_state);
+                chose(2, 0, qian3_state);
                 break;
             case R.id.chose_bai3:
-                if (check(1)) {
-                    bai3_state = !bai3_state;
-                    setBack(view, bai3_state);
-                } else {
-                    showTost(1);
-                }
+                bai3_state = !bai3_state;
+                setBack(view, bai3_state);
+                chose(2, 1, bai3_state);
                 break;
             case R.id.chose_shi3:
-                if (check(2)) {
-                    shi3_state = !shi3_state;
-                    setBack(view, shi3_state);
-                } else {
-                    showTost(1);
-                }
+                shi3_state = !shi3_state;
+                setBack(view, shi3_state);
+                chose(2, 2, shi3_state);
                 break;
             case R.id.chose_ge3:
-                if (check(3)) {
-                    ge3_state = !ge3_state;
-                    setBack(view, ge3_state);
-                } else {
-                    showTost(1);
-                }
+                ge3_state = !ge3_state;
+                setBack(view, ge3_state);
+                chose(2, 3, ge3_state);
+
                 break;
             case R.id.chose_dao1:
                 if (check2(3)) {
@@ -515,15 +480,58 @@ public class Chose extends Fragment implements View.OnClickListener {
         }
     }
 
-    private boolean check(int item) {
+    private void chose(int lin, int item, boolean state) {
+        check(item, state);
+        switch (lin) {
+            case 0:
+                String data0 = item5.getText().toString();
+                onClick(item5_layout);
+                item5.setText(data0);
+                break;
+            case 1:
+                String data1 = item6.getText().toString();
+                onClick(item6_layout);
+                item6.setText(data1);
+                break;
+            case 2:
+                String data2 = item7.getText().toString();
+                onClick(item7_layout);
+                item7.setText(data2);
+                break;
+
+        }
+
+    }
+
+    private void check(int item, boolean state) {
         String data = list_item.get(item).getText().toString();
-        for (int i = 0; i < data.length(); i++) {
-            String str = data.substring(i, i + 1);
-            if (str.equals("X") || str.equals("现")) {
-                return false;
+        if (state) {
+            if (data.equals("X")) {
+                list_item.get(item).setText("");
+            }
+        } else {
+            if (data.equals("")) {
+                switch (item) {
+                    case 0:
+                        if (qian_state || qian2_state || qian3_state)
+                            return;
+                        break;
+                    case 1:
+                        if (bai_state || bai2_state || bai3_state)
+                            return;
+                        break;
+                    case 2:
+                        if (shi_state || shi2_state || shi3_state)
+                            return;
+                        break;
+                    case 3:
+                        if (ge_state || ge2_state || ge3_state)
+                            return;
+                        break;
+                }
+                list_item.get(item).setText("X");
             }
         }
-        return true;
     }
 
     private boolean check2(int item) {
@@ -584,8 +592,8 @@ public class Chose extends Fragment implements View.OnClickListener {
                 now_text.setText("");
             } else {
                 list_clo.get(i).setVisibility(View.GONE);
-                if(i<4&&list_item.get(i).getText().equals("")){
-                    list_item.get(i).setText("X");
+                if (i < 4) {
+                    check(i, false);
                 }
             }
         }
@@ -609,9 +617,9 @@ public class Chose extends Fragment implements View.OnClickListener {
 
     public void clearn() {
         for (int i = 0; i < list_item.size(); i++) {
-            if(i<4){
+            if (i < 4) {
                 list_item.get(i).setText("X");
-            }else {
+            } else {
                 list_item.get(i).setText("");
             }
         }

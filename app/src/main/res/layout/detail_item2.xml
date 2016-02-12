@@ -30,14 +30,6 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/detail_item_allid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginBottom="10dp"
-        android:textColor="@color/black"/>
-    <TextView
         android:layout_width="match_parent"
         android:layout_height="0.3dp"
         android:background="@color/gray"/>
