@@ -358,7 +358,7 @@ public class Detail extends Activity {
                                     list1.get(i).put("zt", "已打印");
                                     break;
                                 case 9:
-                                    list1.get(i).put("zt", "中奖");
+                                    list1.get(i).put("zt", "已退码");
                                     break;
                             }
                         }
