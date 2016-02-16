@@ -24,6 +24,7 @@
                 android:layout_weight="1"
                 android:lines="1"
                 android:text="标题"
+                android:textColor="@color/blue"
                 android:textSize="@dimen/jingcai_text" />
 
             <TextView

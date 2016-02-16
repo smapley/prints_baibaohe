@@ -44,7 +44,6 @@ import java.util.Map;
  */
 public class Print extends Fragment implements View.OnClickListener {
 
-    private static final int DELECT = 1;
     private static final int DELECTS = 2;
     private static final int ERROR = 3;
     private static final int CLEARN = 4;
@@ -95,7 +94,7 @@ public class Print extends Fragment implements View.OnClickListener {
     private int dao = 0;
     private static Map<String, String> baseMap = new HashMap<>();
 
-    private String title = "金币：";
+    private String title = "";
     private String yyed = "";
     public String qishu = "";
 
@@ -112,7 +111,7 @@ public class Print extends Fragment implements View.OnClickListener {
         dialog = new ProgressDialog(getActivity());
         dialog.setTitle("提示：");
         baseMap.put("number", "号码");
-        baseMap.put("gold", "金额");
+        baseMap.put("gold", "元宝");
         baseMap.put("pei", "赔率");
         baseMap.put("hotstat", "0");
         baseMap.put("id", "0");
@@ -192,7 +191,7 @@ public class Print extends Fragment implements View.OnClickListener {
         tv_title3 = (TextView) view.findViewById(R.id.title_item3);
         listView1 = (ListView) view.findViewById(R.id.list1);
         tv_title1.setText("明细");
-        tv_title2.setText(title + yyed);
+        tv_title2.setText("快打");
         tv_title3.setText("打印");
         tv_title1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -316,7 +315,7 @@ public class Print extends Fragment implements View.OnClickListener {
                                     map.put("tuima", item.get("id").toString()+","+item.get("biaoshi").toString());
                                     map.put("user1", MyData.UserName);
                                     map.put("mi", MyData.PassWord);
-                                    mhandler.obtainMessage(DELECT, HttpUtils.updata(map, MyData.URL_TUIMA3)).sendToTarget();
+                                    mhandler.obtainMessage(DELECTS, HttpUtils.updata(map, MyData.URL_TUIMA3)).sendToTarget();
                                 }
                             }).start();
 
@@ -512,6 +511,8 @@ public class Print extends Fragment implements View.OnClickListener {
                         } catch (Exception e) {
 
                         }
+                        baseMap.put("number", "号码("+map1.get("count")+")");
+                        baseMap.put("gold", "元宝("+map1.get("allgold")+")");
                         if (Integer.parseInt(map1.get("count").toString()) > 0) {
                             qishu = map1.get("qishu").toString();
                             yyed = map1.get("yyed1").toString();
@@ -581,27 +582,7 @@ public class Print extends Fragment implements View.OnClickListener {
 
 
                         break;
-                    case DELECT:
-                        tingYa.setText(R.string.tingya);
-                        tingYa.setTextColor(Color.BLACK);
-                        removeList.clear();
-                        int result1 = JSON.parseObject(msg.obj.toString(), new TypeReference<Integer>() {
-                        });
-                        switch (result1) {
-                            case 1:
-                                Toast.makeText(getActivity(), "退码成功！", Toast.LENGTH_SHORT).show();
-                                getData();
-                                break;
 
-                            case -2:
-                                Toast.makeText(getActivity(), "退码已过期！", Toast.LENGTH_SHORT).show();
-                                break;
-                            default:
-                                Toast.makeText(getActivity(), "退码失败！", Toast.LENGTH_SHORT).show();
-                                break;
-                        }
-
-                        break;
                     case DELECTS:
                         tingYa.setText(R.string.tingya);
                         tingYa.setTextColor(Color.BLACK);

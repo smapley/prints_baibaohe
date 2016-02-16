@@ -43,7 +43,7 @@
             <TextView
                 style="@style/data_text1"
                 android:layout_weight="0.5"
-                android:text="金额" />
+                android:text="元宝" />
 
             <TextView
                 style="@style/data_text1"

@@ -108,6 +108,8 @@ public class MyHeZhuang extends Activity {
 
     private ProgressDialog dialog;
 
+    private float nums;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -130,39 +132,47 @@ public class MyHeZhuang extends Activity {
         item3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(MyHeZhuang.this);
-                    float num = 0;
-                    float num1 = Float.parseFloat(jin1_text.getText().toString());
-                    float num2 = Float.parseFloat(jin2_text.getText().toString());
-                    float num3 = Float.parseFloat(jin3_text.getText().toString());
-                    float num4 = Float.parseFloat(jin4_text.getText().toString());
-                    float num5 = Float.parseFloat(jin5_text.getText().toString());
-                    float num6 = Float.parseFloat(jin6_text.getText().toString());
-                    float num1s = Float.parseFloat(peilv1.getText().toString());
-                    float num2s = Float.parseFloat(peilv2.getText().toString());
-                    float num3s = Float.parseFloat(peilv3.getText().toString());
-                    float num4s = Float.parseFloat(peilv4.getText().toString());
-                    float num5s = Float.parseFloat(peilv5.getText().toString());
-                    float num6s = Float.parseFloat(peilv6.getText().toString());
-                    num = num1 * num1s * 6 + num2 * num2s * 4 + num3 * num3s + num4 * num4s * 4 + num5 * num5s * 5 + num6 * num6s;
+                if(nums>0){
+                    addHezhuangService.load(new AddHezhuangParams(
+                            MyData.UserName, MyData.PassWord,zt+"",
+                            jin1_text.getText().toString(), jin2_text.getText().toString(),
+                            jin3_text.getText().toString(), jin4_text.getText().toString(),
+                            jin5_text.getText().toString(), jin6_text.getText().toString()));
+                }else {
+                    try {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(MyHeZhuang.this);
+                        float num = 0;
+                        float num1 = Float.parseFloat(jin1_text.getText().toString());
+                        float num2 = Float.parseFloat(jin2_text.getText().toString());
+                        float num3 = Float.parseFloat(jin3_text.getText().toString());
+                        float num4 = Float.parseFloat(jin4_text.getText().toString());
+                        float num5 = Float.parseFloat(jin5_text.getText().toString());
+                        float num6 = Float.parseFloat(jin6_text.getText().toString());
+                        float num1s = Float.parseFloat(peilv1.getText().toString());
+                        float num2s = Float.parseFloat(peilv2.getText().toString());
+                        float num3s = Float.parseFloat(peilv3.getText().toString());
+                        float num4s = Float.parseFloat(peilv4.getText().toString());
+                        float num5s = Float.parseFloat(peilv5.getText().toString());
+                        float num6s = Float.parseFloat(peilv6.getText().toString());
+                        num = num1 * num1s * 6 + num2 * num2s * 4 + num3 * num3s + num4 * num4s * 4 + num5 * num5s * 5 + num6 * num6s;
 
-                    builder.setTitle("本次操作需要扣除" + num + "金币");
-                    builder.setNegativeButton("取消", null);
-                    builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialog.show();
-                            addHezhuangService.load(new AddHezhuangParams(
-                                    MyData.UserName, MyData.PassWord,zt+"",
-                                    jin1_text.getText().toString(), jin2_text.getText().toString(),
-                                    jin3_text.getText().toString(), jin4_text.getText().toString(),
-                                    jin5_text.getText().toString(), jin6_text.getText().toString()));
-                        }
-                    });
-                    builder.create().show();
-                } catch (Exception e) {
-                    Toast.makeText(MyHeZhuang.this, "请输入正确的数据！", Toast.LENGTH_SHORT).show();
+                        builder.setTitle("本次操作需要扣除" + num + "元宝");
+                        builder.setNegativeButton("取消", null);
+                        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialog.show();
+                                addHezhuangService.load(new AddHezhuangParams(
+                                        MyData.UserName, MyData.PassWord, zt + "",
+                                        jin1_text.getText().toString(), jin2_text.getText().toString(),
+                                        jin3_text.getText().toString(), jin4_text.getText().toString(),
+                                        jin5_text.getText().toString(), jin6_text.getText().toString()));
+                            }
+                        });
+                        builder.create().show();
+                    } catch (Exception e) {
+                        Toast.makeText(MyHeZhuang.this, "请输入正确的数据！", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -306,6 +316,12 @@ public class MyHeZhuang extends Activity {
                 yiya4.setText(map.get("erxya"));
                 yiya5.setText(map.get("sanxya"));
                 yiya6.setText(map.get("sixya"));
+                nums=Float.parseFloat(map.get("erdj").toString())+
+                        Float.parseFloat(map.get("sandj").toString())+
+                        Float.parseFloat(map.get("sidj").toString())+
+                        Float.parseFloat(map.get("erxj").toString())+
+                        Float.parseFloat(map.get("sanxj").toString())+
+                        Float.parseFloat(map.get("sixj").toString());
 
                 if (Integer.parseInt(map.get("zt").toString()) == 0) {
                     kai.setBackgroundColor(Color.WHITE);

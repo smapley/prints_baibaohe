@@ -21,14 +21,15 @@ public class MyData {
     public static final String URL_TUIMA3 = BASE_URL + "tuimaG3.php";
     public static final String URL_GETJILU1 = BASE_URL + "getJilu1.php";
     public static final String URL_GETJILU2 = BASE_URL + "getJilu2.php";
+    public static final String URL_GETJILU3 = BASE_URL + "getJilu3.php";
     public static final String URL_updateZt1 = BASE_URL + "updateZt1.php";
     public static final String URL_getSoudj = BASE_URL + "getSoudj.php";
     public static final String URL_updateZt2 = BASE_URL + "updateZt2.php";
     public static final String URL_reg = BASE_URL + "reg.php";
     public static final String URL_GETZILIAO = BASE_URL + "getZiliao.php";
     public static final String URL_UPDATAZILIAO = BASE_URL + "updateZiliao1.php";
-    public static final String URL_GETMINGXI = BASE_URL + "getMingxi.php";
-    public static final String URL_GETMINGXIHZ = BASE_URL + "getMingxiHZ.php";
+    public static final String URL_GETMINGXI1 = BASE_URL + "getMingxi1.php";
+    public static final String URL_GETMINGXIHZ1 = BASE_URL + "getMingxiHZ1.php";
     public static final String URL_GETJIANG = BASE_URL + "getJiang.php";
     public static final String URL_GENGXIN = BASE_URL + "gengxin.php";
     public static final String URL_Reg2 = BASE_URL + "reg2.php";

@@ -18,15 +18,18 @@
 
         <TextView
             android:id="@+id/detail_item_gold"
-            style="@style/data_text" />
+            style="@style/data_text"
+            android:layout_weight="0.5"/>
 
         <TextView
             android:id="@+id/detail_item_pei"
-            style="@style/data_text" />
+            style="@style/data_text"
+            android:layout_weight="0.8"/>
 
         <TextView
             android:id="@+id/detail_item_zt"
-            style="@style/data_text" />
+            style="@style/data_text"
+            android:layout_weight="0.8"/>
     </LinearLayout>
 
     <TextView

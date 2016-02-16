@@ -344,19 +344,19 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                         allidString = map.get("allid").toString();
                         String allid = "编号：" + allidString;
                         String riqi = "日期：" + map.get("riqi").toString();
-                        String name = "会员：" + map.get("ming").toString();
-                        String qihao = "第" + print.qishu + "期，3天内有效！！";
-                        String allnum = " 笔数 " + map.get("count") + "  总金额 " + map.get("allgold") + "元";
+                        String name = "名字：" + map.get("ming").toString();
+                        String qihao = print.qishu ;
+                        String allnum = " 笔数 " + map.get("count") + "  总共 " + map.get("allgold") + "元宝";
                         String lin = " ";
                         String lin2 = "————————————————————————————————";
                         String dataString = map.get("beizhu").toString();
                         List<Map<String, String>> list = JSON.parseObject(map.get("result").toString(), new TypeReference<List<Map<String, String>>>() {
                         });
                         String number = "号码";
-                        String gold = "金额";
-                        String pei = "1元赔率";
+                        String gold = "元宝";
+                        String pei = "1元宝赔率";
 
-                        byte[] setHT = {0x1b, 0x44, 0x01, 0x0e, 0x16, 0x00,
+                        byte[] setHT = {0x1b, 0x44, 0x04, 0x0d, 0x17, 0x00,
                                 0x1b, 0x61, 0x00,
                                 0x1b, 0x39, 0x01,
                                 0x1b, 0x21, 0x28,
@@ -595,4 +595,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         finish();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        print.getData();
+    }
 }

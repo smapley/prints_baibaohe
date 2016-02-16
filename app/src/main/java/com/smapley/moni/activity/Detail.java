@@ -3,6 +3,7 @@ package com.smapley.moni.activity;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -50,7 +51,6 @@ public class Detail extends Activity {
     private DetailAdapter adapter1;
 
     private final int GETDATA1 = 1;
-    private final int TUIMA = 6;
     private final int UPDATA = 4;
 
     private static List<Map<String, String>> list1;
@@ -76,6 +76,7 @@ public class Detail extends Activity {
     private TextView delect;
     private TextView item2;
     private TextView item3;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +84,8 @@ public class Detail extends Activity {
         setContentView(R.layout.detail);
 
         qishu = getIntent().getStringExtra("qishu");
+
+        progressDialog=new ProgressDialog(this);
 
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -110,7 +113,7 @@ public class Detail extends Activity {
                     public void run() {
                         HashMap map = new HashMap();
                         map.put("user1", MyData.UserName);
-                        mhandler.obtainMessage(UPDATA, HttpUtils.updata(map, MyData.URL_GETJILU2)).sendToTarget();
+                        mhandler.obtainMessage(UPDATA, HttpUtils.updata(map, MyData.URL_GETJILU3)).sendToTarget();
                     }
                 }).start();
             }
@@ -257,11 +260,10 @@ public class Detail extends Activity {
                                         @Override
                                         public void run() {
                                             HashMap map = new HashMap();
-                                            map.put("id", id);
-                                            map.put("biaoshi", biaoshi);
+                                            map.put("tuima", id+ "," +biaoshi);
                                             map.put("user1", MyData.UserName);
                                             map.put("mi", MyData.PassWord);
-                                            mhandler.obtainMessage(TUIMA, HttpUtils.updata(map, MyData.URL_TUIMA1)).sendToTarget();
+                                            mhandler.obtainMessage(DELECTS, HttpUtils.updata(map, MyData.URL_TUIMA3)).sendToTarget();
                                         }
                                     }).start();
                                 }
@@ -318,6 +320,7 @@ public class Detail extends Activity {
     }
 
     private void getData(final int num) {
+        progressDialog.show();
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -325,7 +328,7 @@ public class Detail extends Activity {
                 map.put("user1", MyData.UserName);
                 String url = null;
                 if (num == GETDATA1) {
-                    url = MyData.URL_GETMINGXI;
+                    url = MyData.URL_GETMINGXI1;
                 }
                 mhandler.obtainMessage(num, HttpUtils.updata(map, url)).sendToTarget();
             }
@@ -340,7 +343,10 @@ public class Detail extends Activity {
             try {
                 switch (msg.what) {
                     case GETDATA1:
-                        list1 = JSON.parseObject(msg.obj.toString(), new TypeReference<List<Map<String, String>>>() {
+                        progressDialog.dismiss();
+                        Map<String ,String> map0 = JSON.parseObject(msg.obj.toString(),new TypeReference<Map<String, String>>(){});
+                        item2.setText("共"+map0.get("allgold")+"返"+map0.get("shui"));
+                        list1 = JSON.parseObject(map0.get("result"), new TypeReference<List<Map<String, String>>>() {
                         });
                         for (int i = 0; i < list1.size(); i++) {
                             switch (Integer.parseInt(list1.get(i).get("zt").toString())) {
@@ -352,7 +358,7 @@ public class Detail extends Activity {
                                     list1.get(i).put("zt", "已打印");
                                     break;
                                 case 9:
-                                    list1.get(i).put("zt", "已退码");
+                                    list1.get(i).put("zt", "中奖");
                                     break;
                             }
                         }
@@ -366,24 +372,7 @@ public class Detail extends Activity {
 
                         break;
 
-                    case TUIMA:
-                        int result = JSON.parseObject(msg.obj.toString(), new TypeReference<Integer>() {
-                        });
-                        switch (result) {
-                            case 1:
-                                Toast.makeText(Detail.this, "退码成功！", Toast.LENGTH_SHORT).show();
-                                getData(now_item);
-                                break;
 
-                            case -2:
-                                Toast.makeText(Detail.this, "退码已过期！", Toast.LENGTH_SHORT).show();
-                                break;
-                            default:
-                                Toast.makeText(Detail.this, "退码失败！", Toast.LENGTH_SHORT).show();
-                                break;
-                        }
-
-                        break;
                     case UPDATA:
                         dialog.dismiss();
 
@@ -412,19 +401,19 @@ public class Detail extends Activity {
                         allidString = map.get("allid").toString();
                         String allid = "编号：" + allidString;
                         String riqi = "日期：" + map.get("riqi").toString();
-                        String name = "会员：" + map.get("ming").toString();
-                        String qihao = "第" + qishu + "期，3天内有效！！";
-                        String allnum = " 笔数 " + map.get("count") + "  总金额 " + map.get("allgold") + "元";
+                        String name = "名字：" + map.get("ming").toString();
+                        String qihao = qishu;
+                        String allnum = " 笔数 " + map.get("count") + "  总共 " + map.get("allgold") + "元宝";
                         String lin = " ";
                         String lin2 = "————————————————————————————————";
                         String dataString = map.get("beizhu").toString();
                         List<Map<String, String>> list = JSON.parseObject(map.get("result").toString(), new TypeReference<List<Map<String, String>>>() {
                         });
                         String number = "号码";
-                        String gold = "金额";
-                        String pei = "1元赔率";
+                        String gold = "元宝";
+                        String pei = "1元宝赔率";
 
-                        byte[] setHT = {0x1b, 0x44, 0x01, 0x0e, 0x16, 0x00,
+                        byte[] setHT = {0x1b, 0x44, 0x04, 0x0d, 0x17, 0x00,
                                 0x1b, 0x61, 0x00,
                                 0x1b, 0x39, 0x01,
                                 0x1b, 0x21, 0x28,

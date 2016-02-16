@@ -344,7 +344,7 @@ public class NumList extends Activity implements View.OnClickListener {
                 bottom_item2_ico.setVisibility(View.GONE);
                 keybord.setVisibility(View.GONE);
                 if (bottom_item2.getText().toString().equals("")) {
-                    bottom_item2.setText("金额");
+                    bottom_item2.setText("元宝");
                 }
             }
         });
@@ -457,7 +457,7 @@ public class NumList extends Activity implements View.OnClickListener {
                 }
             }).start();
         } else {
-            Toast.makeText(NumList.this, "金额不能为空！", Toast.LENGTH_SHORT).show();
+            Toast.makeText(NumList.this, "元宝不能为空！", Toast.LENGTH_SHORT).show();
         }
     }
 

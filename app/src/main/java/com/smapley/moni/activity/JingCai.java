@@ -78,7 +78,7 @@ public class JingCai extends Activity implements View.OnClickListener {
     private static Map<String, String> baseMap = new HashMap<>();
     private SharedPreferences sp_user;
 
-    private String title = "金币：";
+    private String title = "元宝：";
     private String yyed = "";
     public String qishu = "";
 
@@ -108,7 +108,7 @@ public class JingCai extends Activity implements View.OnClickListener {
         dialog = new ProgressDialog(JingCai.this);
         dialog.setTitle("提示：");
         baseMap.put("number", "号码");
-        baseMap.put("gold", "金额");
+        baseMap.put("gold", "元宝");
         baseMap.put("pei", "赔率");
         baseMap.put("hotstat", "0");
         baseMap.put("id", "0");
@@ -404,7 +404,7 @@ public class JingCai extends Activity implements View.OnClickListener {
         public void Succ(String data) {
             Map map = JSON.parseObject(data, new TypeReference<Map>() {
             });
-            tv_title2.setText("金币：" + map.get("gold"));
+            tv_title2.setText("元宝：" + map.get("gold"));
         }
     };
 

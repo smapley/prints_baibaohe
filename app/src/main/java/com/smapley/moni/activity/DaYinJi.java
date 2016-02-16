@@ -186,6 +186,8 @@ public class DaYinJi extends Activity {
             }else {
                 Toast.makeText(DaYinJi.this,"保存失败！",Toast.LENGTH_SHORT).show();
             }
+            getDyszService.load(new GetDyszParams(MyData.UserName));
+
         }
     };
 

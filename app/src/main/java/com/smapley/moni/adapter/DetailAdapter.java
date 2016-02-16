@@ -59,6 +59,8 @@ public class DetailAdapter extends BaseAdapter {
             viewHolder.gold = (TextView) convertView.findViewById(R.id.detail_item_gold);
             viewHolder.pei = (TextView) convertView.findViewById(R.id.detail_item_pei);
             viewHolder.zt = (TextView) convertView.findViewById(R.id.detail_item_zt);
+            viewHolder.hotstat = (TextView) convertView.findViewById(R.id.detail_item_hotstat);
+            viewHolder.jiangjin = (TextView) convertView.findViewById(R.id.detail_item_jiangjin);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -66,8 +68,11 @@ public class DetailAdapter extends BaseAdapter {
         try{
             if(map.get("hotstat").toString().equals("1")){
                 viewHolder.layout.setBackgroundColor(Color.YELLOW);
+                viewHolder.hotstat.setVisibility(View.VISIBLE);
+                viewHolder.hotstat.setText("编号："+map.get("allid"));
             }else{
                 viewHolder.layout.setBackgroundColor(Color.WHITE);
+                viewHolder.hotstat.setVisibility(View.GONE);
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -92,16 +97,19 @@ public class DetailAdapter extends BaseAdapter {
         viewHolder.gold.setText(map.get("gold"));
         viewHolder.pei.setText(map.get("pei"));
         viewHolder.zt.setText(map.get("zt"));
-        if (map.get("zt").equals("已退码")) {
+        if (map.get("zt").equals("中奖")) {
             viewHolder.num.setTextColor(context.getResources().getColor(R.color.red));
             viewHolder.gold.setTextColor(context.getResources().getColor(R.color.red));
             viewHolder.pei.setTextColor(context.getResources().getColor(R.color.red));
             viewHolder.zt.setTextColor(context.getResources().getColor(R.color.red));
+            viewHolder.jiangjin.setVisibility(View.VISIBLE);
+            viewHolder.jiangjin.setText("奖金："+map.get("jiangjin"));
         } else {
             viewHolder.num.setTextColor(context.getResources().getColor(R.color.black));
             viewHolder.gold.setTextColor(context.getResources().getColor(R.color.black));
             viewHolder.pei.setTextColor(context.getResources().getColor(R.color.black));
             viewHolder.zt.setTextColor(context.getResources().getColor(R.color.black));
+            viewHolder.jiangjin.setVisibility(View.GONE);
         }
         return convertView;
     }
@@ -112,5 +120,7 @@ public class DetailAdapter extends BaseAdapter {
         TextView gold;
         TextView pei;
         TextView zt;
+        TextView hotstat;
+        TextView jiangjin;
     }
 }
