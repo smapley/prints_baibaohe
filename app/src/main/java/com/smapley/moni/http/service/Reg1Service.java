@@ -15,19 +15,12 @@ public abstract class Reg1Service {
         x.http().post(params, new SimpleCallback() {
             @Override
             public void Success(final String data) {
-                try {
-                    if(Integer.parseInt(data)==1)
-                        Succ();
-                    else
-                        Fail();
-                }catch (Exception e){
-                    Fail();
-                }
+                Succ(data);
+
             }
         });
     }
 
 
-    public abstract void Succ();
-    public abstract void Fail();
+    public abstract void Succ(String data);
 }

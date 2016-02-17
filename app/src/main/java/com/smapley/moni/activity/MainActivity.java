@@ -77,6 +77,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private static String title2;
     public static int position = 1;
 
+    public static MainActivity mainActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +96,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         initView();
         initViewPage();
         initPrint();
+        mainActivity=this;
 
     }
 
@@ -599,5 +601,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     protected void onResume() {
         super.onResume();
         print.getData();
+    }
+
+    public static void stop(){
+        mainActivity.finish();
     }
 }

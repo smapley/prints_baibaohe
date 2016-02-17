@@ -16,7 +16,6 @@
         android:textSize="@dimen/tag_textsize" />
 
 
-
     <LinearLayout
         android:id="@+id/login_layout"
         android:layout_width="match_parent"
@@ -35,48 +34,26 @@
             android:layout_marginTop="@dimen/login_marginTop"
             android:background="@drawable/textview_circle2s"
             android:ems="11"
-            android:hint="@string/login_phone"
-            android:inputType="phone"
+            android:hint="账号"
             android:paddingBottom="10dp"
             android:paddingLeft="20dp"
             android:paddingTop="10dp"
             android:textCursorDrawable="@color/chengse" />
 
-        <LinearLayout
+        <EditText
+            android:id="@+id/login_key"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
-            android:layout_marginTop="3dp"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/login_key"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="@dimen/login_marginTop"
-                android:layout_weight="0.7"
-                android:background="@drawable/textview_circle2s"
-                android:ems="10"
-                android:hint="@string/login_key"
-                android:inputType="number"
-                android:paddingBottom="10dp"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:textCursorDrawable="@color/chengse" />
-
-            <Button
-                android:id="@+id/login_send"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginTop="@dimen/login_marginTop"
-                android:layout_weight="1"
-                android:background="@drawable/textview_circle_chengse"
-                android:text="@string/login_send"
-                android:textColor="@color/white"
-                android:onClick="sendMess"/>
-
-        </LinearLayout>
+            android:layout_marginTop="@dimen/login_marginTop"
+            android:layout_weight="1"
+            android:background="@drawable/textview_circle2s"
+            android:ems="10"
+            android:hint="密码"
+            android:inputType="textPassword"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:textCursorDrawable="@color/chengse" />
 
 
         <Button
@@ -85,9 +62,10 @@
             android:layout_height="45dp"
             android:layout_marginTop="@dimen/login_marginTop"
             android:background="@drawable/textview_circle_chengse"
-            android:text="@string/login_testing"
-            android:textColor="@color/white"
-            android:onClick="checkLogin"/>
+            android:onClick="checkLogin"
+            android:text="注册/登陆"
+            android:textSize="18sp"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 

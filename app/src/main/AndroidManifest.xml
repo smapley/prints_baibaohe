@@ -49,19 +49,24 @@
             android:name="com.smapley.moni.activity.NumList"
             android:windowSoftInputMode="adjustResize" />
 
-        <activity android:name=".activity.AddZhuang"/>
+        <activity android:name=".activity.AddZhuang" />
 
-        <activity android:name=".activity.JingCai"/>
+        <activity android:name=".activity.JingCai" />
 
-        <activity android:name=".activity.KuaiXuan"/>
+        <activity android:name=".activity.KuaiXuan" />
 
         <service android:name="com.smapley.moni.print.WorkService" />
-        <activity android:name=".activity.KaiJiangNum"/>
-        <activity android:name=".activity.MyJingCai"/>
+
+        <activity android:name=".activity.KaiJiangNum" />
+        <activity android:name=".activity.MyJingCai" />
         <activity android:name=".activity.MyHeZhuang" />
-        <activity android:name=".activity.Detail2"/>
-        <activity android:name=".activity.DaYinJi"
-            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".activity.Detail2" />
+        <activity
+            android:name=".activity.DaYinJi"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activity.Gaimi"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
 
         <activity
             android:name="com.alipay.sdk.app.H5PayActivity"

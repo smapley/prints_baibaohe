@@ -57,6 +57,10 @@ public class MyData {
     public final static String URL_ADDGOLD = BASE_URL + "addGold.php";
     public final static String URL_getDysz = BASE_URL + "getDysz.php";
     public final static String URL_updateDysz = BASE_URL + "updateDysz.php";
+    public final static String URL_getZhangdan = BASE_URL + "getZhangdan.php";
+    public final static String URL_getZhangdanHZ = BASE_URL + "getZhangdanHZ.php";
+    public final static String URL_regzhuce = BASE_URL + "regzhuce.php";
+    public final static String URL_reggaimi = BASE_URL + "reggaimi.php";
 
 
     /**

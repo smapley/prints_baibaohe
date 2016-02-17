@@ -26,6 +26,7 @@ import com.alibaba.fastjson.TypeReference;
 import com.alipay.sdk.app.PayTask;
 import com.smapley.moni.R;
 import com.smapley.moni.activity.DaYinJi;
+import com.smapley.moni.activity.Gaimi;
 import com.smapley.moni.activity.KaiJiangNum;
 import com.smapley.moni.activity.Login;
 import com.smapley.moni.activity.MyHeZhuang;
@@ -68,6 +69,7 @@ public class Set extends Fragment {
     private TextView item7;
     private TextView item8;
     private TextView item9;
+    private TextView item10;
     private TextView menu1;
 
 
@@ -164,6 +166,14 @@ public class Set extends Fragment {
         item7 = (TextView) view.findViewById(R.id.set_item7);
         item8 = (TextView) view.findViewById(R.id.set_item8);
         item9 = (TextView) view.findViewById(R.id.set_item9);
+        item10 = (TextView) view.findViewById(R.id.set_item10);
+
+        item10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(),Gaimi.class));
+            }
+        });
 
         item9.setOnClickListener(new View.OnClickListener() {
             @Override

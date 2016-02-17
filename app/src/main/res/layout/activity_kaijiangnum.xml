@@ -1,16 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
 
-    <include
-        layout="@layout/title"/>
+    <TextView
+        android:id="@+id/detail_delect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/lin1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/lin1"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:id="@+id/lin1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="8dp"
+        android:background="@drawable/textview_circle">
+
+        <TextView
+            android:id="@+id/detail_item1"
+            style="@style/data_text"
+            android:text="快打"
+            android:textColor="@color/blue" />
+
+        <TextView
+            android:layout_width="0.3dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray" />
+
+        <TextView
+            android:id="@+id/detail_item2"
+            style="@style/data_text"
+            android:text="合庄" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/re_print"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/lin1"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/lin1"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0.3dp"
-        android:background="@color/black"/>
-    <ListView
-        android:id="@+id/listView"
+        android:layout_below="@+id/lin1"
+        android:background="@color/gray" />
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_below="@+id/lin1">
+
+        <LinearLayout
+            android:id="@+id/layout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="invisible"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    style="@style/data_text1"
+                    android:text="期号" />
+
+                <TextView
+                    style="@style/data_text1"
+                    android:text="押币" />
+
+                <TextView
+                    style="@style/data_text1"
+                    android:text="吃币" />
+
+                <TextView
+                    style="@style/data_text1"
+                    android:text="奖金" />
+
+                <TextView
+                    style="@style/data_text1"
+                    android:text="盈亏" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0.3dp"
+                android:background="@color/gray" />
+
+            <ListView
+                android:id="@+id/listview1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:visibility="invisible">
+
+            <LinearLayout
+                android:id="@+id/lin2"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    style="@style/data_text1"
+                    android:text="期号" />
+
+                <TextView
+                    style="@style/data_text1"
+                    android:text="元宝" />
+
+                <TextView
+                    style="@style/data_text1"
+                    android:text="返币" />
+
+                <TextView
+                    style="@style/data_text1"
+                    android:text="奖金" />
+
+                <TextView
+                    style="@style/data_text1"
+                    android:text="盈亏" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0.3dp"
+                android:background="@color/gray" />
+
+            <ListView
+                android:id="@+id/listview2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+            </ListView>
+
+
+        </LinearLayout>
+    </FrameLayout>
+
+</RelativeLayout>
