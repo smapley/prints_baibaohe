@@ -49,7 +49,6 @@ public class ZhangdanAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.list_zhangdan_item, null);
             viewHolder = new ViewHolder();
-            viewHolder.item1 = (TextView) convertView.findViewById(R.id.list_zhangdan_item1);
             viewHolder.item2 = (TextView) convertView.findViewById(R.id.list_zhangdan_item2);
             viewHolder.item3 = (TextView) convertView.findViewById(R.id.list_zhangdan_item3);
             viewHolder.item4 = (TextView) convertView.findViewById(R.id.list_zhangdan_item4);
@@ -59,19 +58,17 @@ public class ZhangdanAdapter extends BaseAdapter {
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        viewHolder.item1.setText(map.get("qishu"));
         viewHolder.item2.setText(map.get("jine"));
         viewHolder.item3.setText(map.get("huishui"));
         viewHolder.item4.setText(map.get("zhongjiang"));
         viewHolder.item5.setText(map.get("yingkui"));
-        viewHolder.item6.setText("开奖号码："+map.get("jiangnum"));
+        viewHolder.item6.setText(map.get("qishu")+"期开奖号码："+map.get("jiangnum"));
 
 
         return convertView;
     }
 
     public class ViewHolder {
-        TextView item1;
         TextView item2;
         TextView item3;
         TextView item4;

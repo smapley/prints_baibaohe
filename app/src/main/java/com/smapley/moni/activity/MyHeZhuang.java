@@ -104,18 +104,19 @@ public class MyHeZhuang extends Activity {
     @ViewInject(R.id.print_keybord)
     private View print_keybord;
     private int NowPostion = 0;
-    private int zt=0;
+    private int zt = 0;
 
     private ProgressDialog dialog;
 
     private float nums;
+    private float nums2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
 
-        dialog=new ProgressDialog(MyHeZhuang.this);
+        dialog = new ProgressDialog(MyHeZhuang.this);
 
 
         getHezhuangService.load(new GetHezhuangParams(MyData.UserName, MyData.PassWord));
@@ -132,13 +133,13 @@ public class MyHeZhuang extends Activity {
         item3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(nums>0){
+                if (nums > 0) {
                     addHezhuangService.load(new AddHezhuangParams(
-                            MyData.UserName, MyData.PassWord,zt+"",
+                            MyData.UserName, MyData.PassWord, zt + "",
                             jin1_text.getText().toString(), jin2_text.getText().toString(),
                             jin3_text.getText().toString(), jin4_text.getText().toString(),
                             jin5_text.getText().toString(), jin6_text.getText().toString()));
-                }else {
+                } else {
                     try {
                         AlertDialog.Builder builder = new AlertDialog.Builder(MyHeZhuang.this);
                         float num = 0;
@@ -155,7 +156,7 @@ public class MyHeZhuang extends Activity {
                         float num5s = Float.parseFloat(peilv5.getText().toString());
                         float num6s = Float.parseFloat(peilv6.getText().toString());
                         num = num1 * num1s * 6 + num2 * num2s * 4 + num3 * num3s + num4 * num4s * 4 + num5 * num5s * 5 + num6 * num6s;
-
+                        num = num - nums2;
                         builder.setTitle("本次操作需要扣除" + num + "元宝");
                         builder.setNegativeButton("取消", null);
                         builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
@@ -226,12 +227,12 @@ public class MyHeZhuang extends Activity {
             case R.id.kai:
                 kai.setBackgroundColor(Color.BLUE);
                 guan.setBackgroundColor(Color.WHITE);
-                zt=1;
+                zt = 1;
                 break;
             case R.id.guan:
                 guan.setBackgroundColor(Color.BLUE);
                 kai.setBackgroundColor(Color.WHITE);
-                zt=0;
+                zt = 0;
                 break;
 
             case R.id.key_item8:
@@ -316,12 +317,18 @@ public class MyHeZhuang extends Activity {
                 yiya4.setText(map.get("erxya"));
                 yiya5.setText(map.get("sanxya"));
                 yiya6.setText(map.get("sixya"));
-                nums=Float.parseFloat(map.get("erdj").toString())+
-                        Float.parseFloat(map.get("sandj").toString())+
-                        Float.parseFloat(map.get("sidj").toString())+
-                        Float.parseFloat(map.get("erxj").toString())+
-                        Float.parseFloat(map.get("sanxj").toString())+
+                nums = Float.parseFloat(map.get("erdj").toString()) +
+                        Float.parseFloat(map.get("sandj").toString()) +
+                        Float.parseFloat(map.get("sidj").toString()) +
+                        Float.parseFloat(map.get("erxj").toString()) +
+                        Float.parseFloat(map.get("sanxj").toString()) +
                         Float.parseFloat(map.get("sixj").toString());
+                nums = Float.parseFloat(map.get("erdya").toString()) +
+                        Float.parseFloat(map.get("sandya").toString()) +
+                        Float.parseFloat(map.get("sidya").toString()) +
+                        Float.parseFloat(map.get("erxya").toString()) +
+                        Float.parseFloat(map.get("sanxya").toString()) +
+                        Float.parseFloat(map.get("sixya").toString());
 
                 if (Integer.parseInt(map.get("zt").toString()) == 0) {
                     kai.setBackgroundColor(Color.WHITE);

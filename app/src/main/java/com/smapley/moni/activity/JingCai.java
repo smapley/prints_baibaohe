@@ -382,12 +382,16 @@ public class JingCai extends Activity implements View.OnClickListener {
         @Override
         public void Succ(String data) {
             getJinService.load(new GetJinParams(MyData.UserName));
-            int result = JSON.parseObject(data, new TypeReference<Integer>() {
+            Map<String,String > map = JSON.parseObject(data, new TypeReference<Map<String, String>>() {
             });
+            int result=Integer.parseInt(map.get("newid"));
             if (result == -2) {
                 Toast.makeText(JingCai.this, "金币不足！", Toast.LENGTH_SHORT).show();
             } else if (result > 0) {
-                Toast.makeText(JingCai.this, "恭喜您，中奖啦！", Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder=new AlertDialog.Builder(JingCai.this);
+                builder.setMessage("恭喜您获得"+map.get("jiangjin")+"元宝！");
+                builder.setNegativeButton("确定",null);
+                builder.create().show();
             } else {
                 Toast.makeText(JingCai.this, "很遗憾，就差一点点！", Toast.LENGTH_SHORT).show();
             }

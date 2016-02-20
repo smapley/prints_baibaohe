@@ -165,7 +165,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 break;
 
             case 2:
-
                 break;
 
             case 1:

@@ -79,9 +79,6 @@
                 android:layout_height="45dp"
                 android:gravity="center_vertical">
 
-                <TextView
-                    style="@style/data_text1"
-                    android:text="期号" />
 
                 <TextView
                     style="@style/data_text1"
@@ -125,9 +122,6 @@
                 android:layout_height="45dp"
                 android:gravity="center_vertical">
 
-                <TextView
-                    style="@style/data_text1"
-                    android:text="期号" />
 
                 <TextView
                     style="@style/data_text1"

@@ -132,10 +132,12 @@ public class Data extends Fragment {
     private GetZhuangService getZhuangService=new GetZhuangService() {
         @Override
         public void Succ(List<GetZhuangMode> data) {
-            if(data!=null&&!data.isEmpty()){
+            try {
                 listData.clear();
                 listData.addAll(data);
                 adapter.notifyDataSetChanged();
+            }catch (Exception e){
+                e.printStackTrace();
             }
         }
     };

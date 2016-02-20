@@ -12,10 +12,6 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/list_zhangdan_item1"
-            style="@style/zhangdan" />
-
-        <TextView
             android:id="@+id/list_zhangdan_item2"
             style="@style/zhangdan" />
 
