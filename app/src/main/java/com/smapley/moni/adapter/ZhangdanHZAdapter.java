@@ -62,7 +62,7 @@ public class ZhangdanHZAdapter extends BaseAdapter {
         viewHolder.item3.setText(map.get("chibi"));
         viewHolder.item4.setText(map.get("zhongjiang"));
         viewHolder.item5.setText(map.get("yingkui"));
-        viewHolder.item6.setText(map.get("qishu")+"期开奖号码："+map.get("jiangnum"));
+        viewHolder.item6.setText(map.get("qishu")+"开奖号码："+map.get("jiangnum"));
 
 
         return convertView;
