@@ -1,8 +1,10 @@
 package com.smapley.moni.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -87,6 +89,15 @@ public class KaiJiangNum extends Activity {
 
         getZhangdanService.load(new GetZhangdanParams(MyData.UserName));
         getZhangdanHZService.load(new GetZhangdanHZParams(MyData.UserName));
+
+        listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent=new Intent(KaiJiangNum.this,Detail3.class);
+                intent.putExtra("zhang",data1.get(i).get("zhang"));
+                startActivity(intent);
+            }
+        });
     }
 
     @Event({R.id.detail_item1, R.id.detail_item2})
@@ -95,15 +106,15 @@ public class KaiJiangNum extends Activity {
             case R.id.detail_item1:
                 layout1.setVisibility(View.VISIBLE);
                 layout2.setVisibility(View.INVISIBLE);
-                item1.setTextColor(getResources().getColor(R.color.blue));
-                item2.setTextColor(getResources().getColor(R.color.black));
+                item1.setTextColor(getResources().getColor(R.color.black));
+                item2.setTextColor(getResources().getColor(R.color.blue));
                 getZhangdanService.load(new GetZhangdanParams(MyData.UserName));
                 break;
             case R.id.detail_item2:
                 layout1.setVisibility(View.INVISIBLE);
                 layout2.setVisibility(View.VISIBLE);
-                item1.setTextColor(getResources().getColor(R.color.black));
-                item2.setTextColor(getResources().getColor(R.color.blue));
+                item1.setTextColor(getResources().getColor(R.color.blue));
+                item2.setTextColor(getResources().getColor(R.color.black));
                 getZhangdanHZService.load(new GetZhangdanHZParams(MyData.UserName));
                 break;
         }

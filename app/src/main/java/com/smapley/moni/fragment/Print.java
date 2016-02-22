@@ -47,7 +47,6 @@ public class Print extends Fragment implements View.OnClickListener {
     private static final int DELECTS = 2;
     private static final int ERROR = 3;
     private static final int CLEARN = 4;
-    private static final int GETPEILV = 5;
     private TextView tv_title1;
     private TextView tv_title2;
     private TextView tv_title3;
@@ -80,7 +79,6 @@ public class Print extends Fragment implements View.OnClickListener {
     private TextView keyitem14;
     private TextView keyitem15;
     private TextView tag;
-    private TextView xiane;
     private final int UPDATA = -1;
     private final int GETDATA = -2;
     private String number;
@@ -217,6 +215,7 @@ public class Print extends Fragment implements View.OnClickListener {
             @Override
             public void onClick(View view) {
                 keybord.setVisibility(View.GONE);
+                tag.setText("");
                 ((MainActivity) getActivity()).bottom.setVisibility(View.VISIBLE);
 
             }
@@ -227,18 +226,20 @@ public class Print extends Fragment implements View.OnClickListener {
         jinCart = (TextView) view.findViewById(R.id.table_item2_clo);
         keybord = view.findViewById(R.id.print_keybord);
         numText = (TextView) view.findViewById(R.id.num_text);
+        numText.setText("号码");
         jineText = (TextView) view.findViewById(R.id.jine_text);
+        jineText.setText("元宝");
         numLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goNumText("");
+                goNumText("号码");
             }
         });
         jinLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 goJinText(true);
-                jineText.setText("");
+                jineText.setText("元宝");
             }
         });
 
@@ -258,7 +259,6 @@ public class Print extends Fragment implements View.OnClickListener {
         keyitem14 = (TextView) view.findViewById(R.id.key_item14);
         keyitem15 = (TextView) view.findViewById(R.id.key_item15);
         tag = (TextView) view.findViewById(R.id.text_tag);
-        xiane=(TextView)view.findViewById(R.id.text_xiane);
 
         keyitem1.setOnClickListener(this);
         keyitem2.setOnClickListener(this);
@@ -336,22 +336,16 @@ public class Print extends Fragment implements View.OnClickListener {
         listView1.setAdapter(adapter1);
     }
 
-    private void goJinText(boolean tag) {
-        //网络连接
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                HashMap map = new HashMap();
-                map.put("user1", MyData.UserName);
-                map.put("number", numText.getText().toString());
-                mhandler.obtainMessage(GETPEILV, HttpUtils.updata(map, MyData.URL_GETPEILV)).sendToTarget();
-            }
-        }).start();
+    private void goJinText(boolean tags) {
+
 
         hasPoint = false;
         nowText = jineText;
-        jine = tag;
+        jine = tags;
         keybord.setVisibility(View.VISIBLE);
+        if(tag.getText().equals("")){
+            tag.setText("▼");
+        }
         ((MainActivity) getActivity()).bottom.setVisibility(View.GONE);
         keybord.setBackgroundResource(R.color.back2);
         numCart.setVisibility(View.GONE);
@@ -364,9 +358,9 @@ public class Print extends Fragment implements View.OnClickListener {
 
     private void goNumText(String text) {
 
-        if (tag.getText().length() != 1)
-            tag.setText("");
-        xiane.setText("");
+        if(tag.getText().equals("")){
+            tag.setText("▼");
+        }
         hasPoint = false;
         nowText = numText;
         nowText.setText(text);
@@ -389,7 +383,7 @@ public class Print extends Fragment implements View.OnClickListener {
                     xian = 1;
                     dao = 0;
                 } else {
-                    tag.setText("");
+                    tag.setText("▼");
                     xian = 0;
                 }
 
@@ -400,7 +394,7 @@ public class Print extends Fragment implements View.OnClickListener {
                     xian = 0;
                     dao = 1;
                 } else {
-                    tag.setText("");
+                    tag.setText("▼");
                     dao = 0;
                 }
                 break;
@@ -408,7 +402,11 @@ public class Print extends Fragment implements View.OnClickListener {
 
                 if (nowText == numText) {
                     if (nowText.getText().length() < 3) {
-                        nowText.setText(nowText.getText().toString() + ((TextView) view).getText().toString());
+                        if(nowText.getText().equals("号码")){
+                            nowText.setText(((TextView) view).getText().toString());
+                        }else{
+                            nowText.setText(nowText.getText().toString() + ((TextView) view).getText().toString());
+                        }
                     } else {
                         nowText.setText(nowText.getText().toString() + ((TextView) view).getText().toString());
                         goJinText(true);
@@ -419,11 +417,16 @@ public class Print extends Fragment implements View.OnClickListener {
 
 
             case R.id.key_item12:
-                upData();
-                goNumText("");
-                xian = 0;
-                dao = 0;
-                tag.setText("");
+                if(numText.getText().equals("号码")||jineText.getText().equals("元宝")){
+                    Toast.makeText(getActivity(),"请输入正确的信息！",Toast.LENGTH_SHORT).show();
+                }else{
+                    upData();
+                    goNumText("");
+                    xian = 0;
+                    dao = 0;
+                    tag.setText("");
+                }
+
 
                 break;
 
@@ -441,7 +444,11 @@ public class Print extends Fragment implements View.OnClickListener {
                         nowText.setText(((TextView) view).getText().toString());
                         jine = false;
                     } else {
-                        nowText.setText(nowText.getText().toString() + ((TextView) view).getText().toString());
+                        if(nowText.getText().equals("号码")){
+                            nowText.setText(((TextView) view).getText().toString());
+                        }else{
+                            nowText.setText(nowText.getText().toString() + ((TextView) view).getText().toString());
+                        }
                     }
                 } else if (nowText.length() == 3) {
                     nowText.setText(nowText.getText().toString() + ((TextView) view).getText().toString());
@@ -619,13 +626,7 @@ public class Print extends Fragment implements View.OnClickListener {
                             getData();
                         }
                         break;
-                    case GETPEILV:
-                        Map map3 = JSON.parseObject(msg.obj.toString(), new TypeReference<Map>() {
-                        });
-                        if (tag.getText().length() != 1)
-                            tag.setText(map3.get("peilv").toString());
-                        xiane.setText(map3.get("xiane").toString());
-                        break;
+
                 }
             } catch (Exception e) {
                 e.printStackTrace();

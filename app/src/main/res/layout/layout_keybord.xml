@@ -56,17 +56,6 @@
                 android:textColor="@color/bac1"
                 android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/text_xiane"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_gravity="center_vertical"
-                android:gravity="center"
-                android:lines="1"
-                android:minWidth="50dp"
-                android:textColor="@color/blue"
-                android:textSize="18sp" />
         </LinearLayout>
 
 

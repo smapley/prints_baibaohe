@@ -37,6 +37,7 @@ public class MyData {
     public static final String URL_XIAZAI = "http://www.newera98.com/baibaohe.apk";
     public static final String URL_DELTINGYA =BASE_URL+"delTingya.php";
     public static final String URL_GETPEILV =BASE_URL+"getPeilv.php";
+    public static final String URL_getMingxi2 =BASE_URL+"getMingxi2.php";
 
 
     public final static String URL_sendSMS=BASE_URL+"sendSMS.php";
@@ -57,8 +58,8 @@ public class MyData {
     public final static String URL_ADDGOLD = BASE_URL + "addGold.php";
     public final static String URL_getDysz = BASE_URL + "getDysz.php";
     public final static String URL_updateDysz = BASE_URL + "updateDysz.php";
-    public final static String URL_getZhangdan = BASE_URL + "getZhangdan.php";
-    public final static String URL_getZhangdanHZ = BASE_URL + "getZhangdanHZ.php";
+    public final static String URL_getZhangdan = BASE_URL + "getZhangdan2.php";
+    public final static String URL_getZhangdanHZ = BASE_URL + "getZhangdanHZ2.php";
     public final static String URL_regzhuce = BASE_URL + "regzhuce.php";
     public final static String URL_reggaimi = BASE_URL + "reggaimi.php";
 
