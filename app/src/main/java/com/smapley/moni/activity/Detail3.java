@@ -50,6 +50,7 @@ public class Detail3 extends Activity {
     public TextView item2;
 
     private String zhang;
+    private String aaa="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,7 @@ public class Detail3 extends Activity {
         setContentView(R.layout.detail2);
 
         zhang=getIntent().getStringExtra("zhang");
+        aaa=getIntent().getStringExtra("aaa");
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.dialog_item1);
@@ -123,6 +125,7 @@ public class Detail3 extends Activity {
             public void run() {
                 HashMap<String, Object> map = new HashMap<String, Object>();
                 map.put("zhang", zhang);
+                map.put("aaa",aaa);
                 String url = null;
                 if (num == GETDATA1) {
                     url = MyData.URL_getMingxi2;

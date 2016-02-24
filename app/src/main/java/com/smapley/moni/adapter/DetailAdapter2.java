@@ -56,6 +56,8 @@ public class DetailAdapter2 extends BaseAdapter {
             viewHolder.gold = (TextView) convertView.findViewById(R.id.detail_item_gold);
             viewHolder.pei = (TextView) convertView.findViewById(R.id.detail_item_pei);
             viewHolder.zt = (TextView) convertView.findViewById(R.id.detail_item_zt);
+            viewHolder.hotstat = (TextView) convertView.findViewById(R.id.detail_item_hotstat);
+            viewHolder.jiangjin = (TextView) convertView.findViewById(R.id.detail_item_jiangjin);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -63,8 +65,15 @@ public class DetailAdapter2 extends BaseAdapter {
         try{
             if(map.get("hotstat").toString().equals("1")){
                 viewHolder.layout.setBackgroundColor(Color.YELLOW);
+                viewHolder.hotstat.setVisibility(View.VISIBLE);
+                viewHolder.hotstat.setText("编号：" + map.get("allid"));
+                map.put("zt", "中奖");
+                viewHolder.jiangjin.setVisibility(View.VISIBLE);
+                viewHolder.jiangjin.setText("奖金：" + map.get("jiangjin"));
             }else{
                 viewHolder.layout.setBackgroundColor(Color.WHITE);
+                viewHolder.hotstat.setVisibility(View.GONE);
+                viewHolder.jiangjin.setVisibility(View.GONE);
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -93,5 +102,7 @@ public class DetailAdapter2 extends BaseAdapter {
         TextView gold;
         TextView pei;
         TextView zt;
+        TextView hotstat;
+        TextView jiangjin;
     }
 }

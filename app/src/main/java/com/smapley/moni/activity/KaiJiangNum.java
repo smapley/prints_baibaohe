@@ -95,6 +95,7 @@ public class KaiJiangNum extends Activity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent=new Intent(KaiJiangNum.this,Detail3.class);
                 intent.putExtra("zhang",data1.get(i).get("zhang"));
+                intent.putExtra("aaa",data1.get(i).get("aaa"));
                 startActivity(intent);
             }
         });
@@ -106,15 +107,15 @@ public class KaiJiangNum extends Activity {
             case R.id.detail_item1:
                 layout1.setVisibility(View.VISIBLE);
                 layout2.setVisibility(View.INVISIBLE);
-                item1.setTextColor(getResources().getColor(R.color.black));
-                item2.setTextColor(getResources().getColor(R.color.blue));
+                item1.setTextColor(getResources().getColor(R.color.blue));
+                item2.setTextColor(getResources().getColor(R.color.black));
                 getZhangdanService.load(new GetZhangdanParams(MyData.UserName));
                 break;
             case R.id.detail_item2:
                 layout1.setVisibility(View.INVISIBLE);
                 layout2.setVisibility(View.VISIBLE);
-                item1.setTextColor(getResources().getColor(R.color.blue));
-                item2.setTextColor(getResources().getColor(R.color.black));
+                item1.setTextColor(getResources().getColor(R.color.black));
+                item2.setTextColor(getResources().getColor(R.color.blue));
                 getZhangdanHZService.load(new GetZhangdanHZParams(MyData.UserName));
                 break;
         }

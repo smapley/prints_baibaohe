@@ -216,6 +216,8 @@ public class Print extends Fragment implements View.OnClickListener {
             public void onClick(View view) {
                 keybord.setVisibility(View.GONE);
                 tag.setText("");
+                numText.setText("号码");
+                jineText.setText("元宝");
                 ((MainActivity) getActivity()).bottom.setVisibility(View.VISIBLE);
 
             }
@@ -232,14 +234,14 @@ public class Print extends Fragment implements View.OnClickListener {
         numLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goNumText("号码");
+                goNumText("");
             }
         });
         jinLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 goJinText(true);
-                jineText.setText("元宝");
+                jineText.setText("");
             }
         });
 

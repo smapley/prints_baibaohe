@@ -1,6 +1,7 @@
 package com.smapley.moni.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,7 +63,12 @@ public class ZhangdanAdapter extends BaseAdapter {
         viewHolder.item3.setText(map.get("huishui"));
         viewHolder.item4.setText(map.get("zhongjiang"));
         viewHolder.item5.setText(map.get("yingkui"));
-        viewHolder.item6.setText(map.get("qishu")+"开奖号码："+map.get("jiangnum"));
+        if(map.get("yanse").toString().equals("1")){
+            viewHolder.item6.setTextColor(Color.RED);
+        }else{
+            viewHolder.item6.setTextColor(Color.BLUE);
+        }
+        viewHolder.item6.setText(map.get("zonghe"));
 
 
         return convertView;
