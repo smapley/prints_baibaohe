@@ -452,7 +452,7 @@ public class NumList extends Activity implements View.OnClickListener {
                     number = number.substring(0, number.length() - 1);
                     map.put("number", number);
                     map.put("mi", MyData.PassWord);
-                    mhandler.obtainMessage(UPDATA, HttpUtils.updata(map, MyData.URL_INDEX1)).sendToTarget();
+                    mhandler.obtainMessage(UPDATA, HttpUtils.updata(map, MyData.URL_INDEX2)).sendToTarget();
 
                 }
             }).start();

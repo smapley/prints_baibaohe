@@ -11,13 +11,9 @@ public class MyData {
     public static String PassWord;
     public static boolean Login = false;
 
-    public static final String SP_USER = "user";
-    public static final String SP_TABLE = "table";
     private static final String BASE_URL = "http://120.25.208.188/moni/";
-    public static final String URL_UPDATEEDU = BASE_URL + "updateEdu.php";
-    public static final String URL_ADDDATA = BASE_URL + "addData.php";
     public static final String URL_INDEX1 = BASE_URL + "xiazhuG1.php";
-    public static final String URL_TUIMA1 = BASE_URL + "tuimaG2.php";
+    public static final String URL_INDEX2 = BASE_URL + "xiazhuG2.php";
     public static final String URL_TUIMA3 = BASE_URL + "tuimaG3.php";
     public static final String URL_GETJILU1 = BASE_URL + "getJilu1.php";
     public static final String URL_GETJILU2 = BASE_URL + "getJilu2.php";
@@ -25,18 +21,12 @@ public class MyData {
     public static final String URL_updateZt1 = BASE_URL + "updateZt1.php";
     public static final String URL_getSoudj = BASE_URL + "getSoudj.php";
     public static final String URL_updateZt2 = BASE_URL + "updateZt2.php";
-    public static final String URL_reg = BASE_URL + "reg.php";
-    public static final String URL_GETZILIAO = BASE_URL + "getZiliao.php";
-    public static final String URL_UPDATAZILIAO = BASE_URL + "updateZiliao1.php";
     public static final String URL_GETMINGXI1 = BASE_URL + "getMingxi1.php";
     public static final String URL_GETMINGXIHZ1 = BASE_URL + "getMingxiHZ1.php";
-    public static final String URL_GETJIANG = BASE_URL + "getJiang.php";
     public static final String URL_GENGXIN = BASE_URL + "gengxin.php";
     public static final String URL_Reg2 = BASE_URL + "reg2.php";
-    public static final String URL_GETZHANGDAN = BASE_URL + "getZhangdan.php";
     public static final String URL_XIAZAI = "http://www.newera98.com/baibaohe.apk";
     public static final String URL_DELTINGYA =BASE_URL+"delTingya.php";
-    public static final String URL_GETPEILV =BASE_URL+"getPeilv.php";
     public static final String URL_getMingxi2 =BASE_URL+"getMingxi2.php";
 
 
