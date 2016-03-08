@@ -201,19 +201,7 @@ public class Detail extends Activity {
         });
 
         re_print = (TextView) findViewById(R.id.title_item3);
-        re_print.setText("重打");
-        re_print.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (WorkService.workThread.isConnected()) {
-                    upData();
-                } else {
-                    Toast.makeText(Detail.this, "未连接到打印机！", Toast.LENGTH_SHORT).show();
 
-                }
-
-            }
-        });
 
 
 
@@ -351,11 +339,11 @@ public class Detail extends Activity {
                         for (int i = 0; i < list1.size(); i++) {
                             switch (Integer.parseInt(list1.get(i).get("zt").toString())) {
                                 case 0:
-                                    list1.get(i).put("zt", "未打印");
+                                    list1.get(i).put("zt", "已下注");
 
                                     break;
                                 case 1:
-                                    list1.get(i).put("zt", "已打印");
+                                    list1.get(i).put("zt", "已下注");
                                     break;
                                 case 9:
                                     list1.get(i).put("zt", "已退码");

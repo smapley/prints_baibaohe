@@ -117,7 +117,6 @@ public class Chose extends Fragment implements View.OnClickListener {
 
 
     private int now_position = 0;
-    private String title = "";
 
 
     @Override
@@ -133,7 +132,7 @@ public class Chose extends Fragment implements View.OnClickListener {
         tv_title3 = (TextView) view.findViewById(R.id.title_item3);
         tv_title3.setText("生成");
         tv_title3.setOnClickListener(this);
-        tv_title2.setText(title);
+        tv_title2.setText("快选");
         item1 = (TextView) view.findViewById(R.id.chose_item1);
         item2 = (TextView) view.findViewById(R.id.chose_item2);
         item3 = (TextView) view.findViewById(R.id.chose_item3);
@@ -641,9 +640,4 @@ public class Chose extends Fragment implements View.OnClickListener {
         setBack(ge2, ge2_state);
     }
 
-    public void settitle(String title2) {
-        this.title = title2;
-        if (tv_title2 != null)
-            tv_title2.setText(title2);
-    }
 }

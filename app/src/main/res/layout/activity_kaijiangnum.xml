@@ -127,9 +127,6 @@
                     style="@style/data_text1"
                     android:text="元宝" />
 
-                <TextView
-                    style="@style/data_text1"
-                    android:text="返币" />
 
                 <TextView
                     style="@style/data_text1"

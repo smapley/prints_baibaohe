@@ -12,9 +12,9 @@ public class MyData {
     public static boolean Login = false;
 
     private static final String BASE_URL = "http://120.25.208.188/moni/";
-    public static final String URL_INDEX1 = BASE_URL + "xiazhuG1.php";
-    public static final String URL_INDEX2 = BASE_URL + "xiazhuG2.php";
-    public static final String URL_TUIMA3 = BASE_URL + "tuimaG3.php";
+    public static final String URL_INDEX1 = BASE_URL + "zxiazhu.php";
+    public static final String URL_INDEX2 = BASE_URL + "zxiazhu.php";
+    public static final String URL_TUIMA3 = BASE_URL + "ztuima.php";
     public static final String URL_GETJILU1 = BASE_URL + "getJilu1.php";
     public static final String URL_GETJILU2 = BASE_URL + "getJilu2.php";
     public static final String URL_GETJILU3 = BASE_URL + "getJilu3.php";
@@ -39,8 +39,6 @@ public class MyData {
     public final static String URL_addjiang=BASE_URL+"addJiang.php";
     public final static String URL_getJilu1=BASE_URL+"getJilu1.php";
     public final static String URL_getZhuang=BASE_URL+"getZhuang.php";
-    public final static String URL_xiazhu=BASE_URL+"xiazhu.php";
-    public static final String URL_tuimaG3 = BASE_URL + "tuimaG3.php";
     public static final String URL_getHezhuang = BASE_URL + "getHezhuang.php";
     public static final String URL_addHezhuang = BASE_URL + "addHezhuang.php";
     public static final String URL_addChongzhi = BASE_URL + "addChongzhi.php";

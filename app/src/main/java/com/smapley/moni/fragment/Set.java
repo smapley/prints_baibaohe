@@ -25,13 +25,11 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import com.alipay.sdk.app.PayTask;
 import com.smapley.moni.R;
-import com.smapley.moni.activity.DaYinJi;
 import com.smapley.moni.activity.Gaimi;
 import com.smapley.moni.activity.KaiJiangNum;
 import com.smapley.moni.activity.Login;
 import com.smapley.moni.activity.MyHeZhuang;
 import com.smapley.moni.activity.MyJingCai;
-import com.smapley.moni.activity.SearchBTActivity;
 import com.smapley.moni.http.params.AddChongzhiParams;
 import com.smapley.moni.http.params.GetJinParams;
 import com.smapley.moni.http.service.AddChongzhiService;
@@ -62,13 +60,11 @@ public class Set extends Fragment {
 
     private static final int GETVERSION = 1;
     private TextView item0;
-    private TextView item1;
     private TextView item2;
     private TextView item4;
     private TextView item6;
     private TextView item7;
     private TextView item8;
-    private TextView item9;
     private TextView item10;
     private TextView menu1;
 
@@ -126,7 +122,7 @@ public class Set extends Fragment {
     private void initView(View view) {
 
         tv_title2 = (TextView) view.findViewById(R.id.title_item2);
-        tv_title2.setText(title);
+        tv_title2.setText("设置");
 
         tv_title3 = (TextView) view.findViewById(R.id.title_item3);
         tv_title3.setText("充值");
@@ -159,13 +155,11 @@ public class Set extends Fragment {
 
 
         item0 = (TextView) view.findViewById(R.id.set_item0);
-        item1 = (TextView) view.findViewById(R.id.set_item1);
         item2 = (TextView) view.findViewById(R.id.set_item2);
         item4 = (TextView) view.findViewById(R.id.set_item4);
         item6 = (TextView) view.findViewById(R.id.set_item6);
         item7 = (TextView) view.findViewById(R.id.set_item7);
         item8 = (TextView) view.findViewById(R.id.set_item8);
-        item9 = (TextView) view.findViewById(R.id.set_item9);
         item10 = (TextView) view.findViewById(R.id.set_item10);
 
         item10.setOnClickListener(new View.OnClickListener() {
@@ -175,23 +169,11 @@ public class Set extends Fragment {
             }
         });
 
-        item9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity(), DaYinJi.class));
-            }
-        });
 
         item8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), MyHeZhuang.class));
-            }
-        });
-        item1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity(), SearchBTActivity.class));
             }
         });
 
@@ -385,11 +367,6 @@ public class Set extends Fragment {
         }
     }
 
-    public void settitle(String title2) {
-        this.title = title2;
-        if (tv_title2 != null)
-            tv_title2.setText(title2);
-    }
 
     /**
      * create the order info. 创建订单信息

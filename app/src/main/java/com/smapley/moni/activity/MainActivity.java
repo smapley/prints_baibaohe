@@ -169,20 +169,15 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
             case 1:
                 chose.clearn();
-                chose.settitle(title2);
                 break;
             case 3:
-                set.settitle(title2);
                 break;
         }
 
         viewPager.setCurrentItem(num);
     }
 
-    private void changeTitle(String title2) {
-        chose.settitle(title2);
-        set.settitle(title2);
-    }
+
 
     private void initPrint() {
         // 初始化字符串资源
@@ -528,7 +523,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                     } else {
                         title2 = theActivity.getString(R.string.print0);
                     }
-                    theActivity.changeTitle(title2);
                     FileUtils.AddToFile("MHandler MSG_ALLTHREAD_READY\r\n",
                             FileUtils.sdcard_dump_txt);
                     break;
@@ -547,7 +541,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                     } else {
                         title2 = theActivity.getString(R.string.print0);
                     }
-                    theActivity.changeTitle(title2);
                     FileUtils.DebugAddToFile("statusOK: " + statusOK + " status: "
                                     + DataUtils.byteToStr((byte) status) + "\r\n",
                             FileUtils.sdcard_dump_txt);

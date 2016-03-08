@@ -30,7 +30,6 @@ import com.smapley.moni.listview.SwipeMenu;
 import com.smapley.moni.listview.SwipeMenuCreator;
 import com.smapley.moni.listview.SwipeMenuItem;
 import com.smapley.moni.listview.SwipeMenuListView;
-import com.smapley.moni.print.WorkService;
 import com.smapley.moni.util.HttpUtils;
 import com.smapley.moni.util.MyData;
 
@@ -49,7 +48,7 @@ public class Print extends Fragment implements View.OnClickListener {
     private static final int CLEARN = 4;
     private TextView tv_title1;
     private TextView tv_title2;
-    private TextView tv_title3;
+    private static TextView tv_title3;
 
     private View keybord;
     private TextView back;
@@ -99,7 +98,6 @@ public class Print extends Fragment implements View.OnClickListener {
     private boolean hasPoint = false;
 
     public static List<Map<String, String>> removeList = new ArrayList<>();
-    private static TextView tingYa;
 
 
     @Override
@@ -121,12 +119,20 @@ public class Print extends Fragment implements View.OnClickListener {
     }
 
     private void initView(View view) {
-        tingYa = (TextView) view.findViewById(R.id.print_tingya);
 
-        tingYa.setOnClickListener(new View.OnClickListener() {
+
+        tv_title1 = (TextView) view.findViewById(R.id.title_item1);
+        tv_title2 = (TextView) view.findViewById(R.id.title_item2);
+        tv_title3 = (TextView) view.findViewById(R.id.title_item3);
+        listView1 = (ListView) view.findViewById(R.id.list1);
+        tv_title1.setText("明细");
+        tv_title2.setText("快打");
+        tv_title3.setText("清空");
+        tv_title3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (tingYa.getText().equals(getString(R.string.delect))) {
+
+                if (tv_title3.getText().equals(getString(R.string.delect))) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                     builder.setTitle("提示：");
                     builder.setMessage("是否批量删除？");
@@ -161,7 +167,7 @@ public class Print extends Fragment implements View.OnClickListener {
                     builder.setNegativeButton("取消", null);
                     builder.create().show();
 
-                } else if (tingYa.getText().equals(getString(R.string.tingya))) {
+                } else if (tv_title3.getText().equals(getString(R.string.tingya))) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                     builder.setMessage("是否清空失败的号码？");
                     builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
@@ -182,31 +188,12 @@ public class Print extends Fragment implements View.OnClickListener {
                 }
             }
         });
-
-
-        tv_title1 = (TextView) view.findViewById(R.id.title_item1);
-        tv_title2 = (TextView) view.findViewById(R.id.title_item2);
-        tv_title3 = (TextView) view.findViewById(R.id.title_item3);
-        listView1 = (ListView) view.findViewById(R.id.list1);
-        tv_title1.setText("明细");
-        tv_title2.setText("快打");
-        tv_title3.setText("打印");
         tv_title1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), Detail.class);
                 intent.putExtra("qishu", qishu);
                 startActivity(intent);
-            }
-        });
-        tv_title3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (WorkService.workThread.isConnected()) {
-                    ((MainActivity) getActivity()).mhandler.obtainMessage(11).sendToTarget();
-                } else {
-                   Toast.makeText(getActivity(),"未连接打印机！",Toast.LENGTH_SHORT).show();
-                }
             }
         });
 
@@ -593,8 +580,8 @@ public class Print extends Fragment implements View.OnClickListener {
                         break;
 
                     case DELECTS:
-                        tingYa.setText(R.string.tingya);
-                        tingYa.setTextColor(Color.BLACK);
+                        tv_title3.setText(R.string.tingya);
+                        tv_title3.setTextColor(Color.BLACK);
                         removeList.clear();
                         String result2 = JSON.parseObject(msg.obj.toString(), new TypeReference<String>() {
                         });
@@ -615,8 +602,8 @@ public class Print extends Fragment implements View.OnClickListener {
 
                         break;
                     case ERROR:
-                        tingYa.setText(R.string.tingya);
-                        tingYa.setTextColor(Color.BLACK);
+                        tv_title3.setText(R.string.tingya);
+                        tv_title3.setTextColor(Color.BLACK);
                         removeList.clear();
                         adapter.notifyDataSetChanged();
                         Toast.makeText(getActivity(), "没有码可以退！", Toast.LENGTH_SHORT).show();
@@ -656,11 +643,11 @@ public class Print extends Fragment implements View.OnClickListener {
             }
         }
         if (removeList.size() > 0) {
-            tingYa.setText(R.string.delect);
-            tingYa.setTextColor(Color.BLUE);
+            tv_title3.setText(R.string.delect);
+            tv_title3.setTextColor(Color.BLUE);
         } else {
-            tingYa.setText(R.string.tingya);
-            tingYa.setTextColor(Color.BLACK);
+            tv_title3.setText(R.string.tingya);
+            tv_title3.setTextColor(Color.BLACK);
         }
     }
 
@@ -673,11 +660,11 @@ public class Print extends Fragment implements View.OnClickListener {
             removeList.remove(map);
         }
         if (removeList.size() > 0) {
-            tingYa.setText(R.string.delect);
-            tingYa.setTextColor(Color.BLUE);
+            tv_title3.setText(R.string.delect);
+            tv_title3.setTextColor(Color.BLUE);
         } else {
-            tingYa.setText(R.string.tingya);
-            tingYa.setTextColor(Color.BLACK);
+            tv_title3.setText(R.string.tingya);
+            tv_title3.setTextColor(Color.BLACK);
         }
     }
 }

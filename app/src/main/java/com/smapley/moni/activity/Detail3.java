@@ -150,11 +150,11 @@ public class Detail3 extends Activity {
                         for (int i = 0; i < list1.size(); i++) {
                             switch (Integer.parseInt(list1.get(i).get("zt").toString())) {
                                 case 0:
-                                    list1.get(i).put("zt", "未打印");
+                                    list1.get(i).put("zt", "已下注");
 
                                     break;
                                 case 1:
-                                    list1.get(i).put("zt", "已打印");
+                                    list1.get(i).put("zt", "已下注");
                                     break;
                                 case 9:
                                     list1.get(i).put("zt", "已退码");

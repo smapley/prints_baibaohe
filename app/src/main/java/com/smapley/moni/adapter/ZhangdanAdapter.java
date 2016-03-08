@@ -60,7 +60,7 @@ public class ZhangdanAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         viewHolder.item2.setText(map.get("jine"));
-        viewHolder.item3.setText(map.get("huishui"));
+        viewHolder.item3.setVisibility(View.GONE);
         viewHolder.item4.setText(map.get("zhongjiang"));
         viewHolder.item5.setText(map.get("yingkui"));
         if(map.get("yanse").toString().equals("1")){
