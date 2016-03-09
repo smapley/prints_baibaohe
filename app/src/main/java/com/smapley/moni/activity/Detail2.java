@@ -137,7 +137,7 @@ public class Detail2 extends Activity {
                 switch (msg.what) {
                     case GETDATA1:
                         Map<String ,String> map0 = JSON.parseObject(msg.obj.toString(),new TypeReference<Map<String, String>>(){});
-                        item2.setText("共"+map0.get("allgold"));
+                        item2.setText(map0.get("allgold"));
                         list1 = JSON.parseObject(map0.get("result"), new TypeReference<List<Map<String, String>>>() {
                         });
                         for (int i = 0; i < list1.size(); i++) {

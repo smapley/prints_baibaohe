@@ -333,7 +333,7 @@ public class Detail extends Activity {
                     case GETDATA1:
                         progressDialog.dismiss();
                         Map<String ,String> map0 = JSON.parseObject(msg.obj.toString(),new TypeReference<Map<String, String>>(){});
-                        item2.setText("共"+map0.get("allgold")+"返"+map0.get("shui"));
+                        item2.setText(map0.get("allgold"));
                         list1 = JSON.parseObject(map0.get("result"), new TypeReference<List<Map<String, String>>>() {
                         });
                         for (int i = 0; i < list1.size(); i++) {

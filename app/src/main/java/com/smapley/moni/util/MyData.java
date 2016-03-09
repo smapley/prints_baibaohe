@@ -11,7 +11,7 @@ public class MyData {
     public static String PassWord;
     public static boolean Login = false;
 
-    private static final String BASE_URL = "http://120.25.208.188/moni/";
+    private static final String BASE_URL = "http://120.25.208.188/baibaohe/";
     public static final String URL_INDEX1 = BASE_URL + "zxiazhu.php";
     public static final String URL_INDEX2 = BASE_URL + "zxiazhu.php";
     public static final String URL_TUIMA3 = BASE_URL + "ztuima.php";

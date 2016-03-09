@@ -169,7 +169,7 @@ public class Print extends Fragment implements View.OnClickListener {
 
                 } else if (tv_title3.getText().equals(getString(R.string.tingya))) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    builder.setMessage("是否清空失败的号码？");
+                    builder.setMessage("是否清空显示区内容？");
                     builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {

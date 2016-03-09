@@ -131,7 +131,7 @@ public class Set extends Fragment {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setTitle("请输入充值元宝数量：");
+                builder.setTitle("请输入充值金额：");
                 LayoutInflater inflater = LayoutInflater.from(getActivity());
                 View view1 = inflater.inflate(R.layout.layout_inputtext, null, false);
                 final EditText editText = (EditText) view1.findViewById(R.id.editext);

@@ -43,7 +43,7 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
                 android:background="@drawable/textview_circle2s"
-                android:textCursorDrawable="@color/chengse"/>
+                android:textCursorDrawable="@mipmap/cursor"/>
         </LinearLayout>
 
         <LinearLayout
@@ -93,9 +93,10 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="2dp"
                 android:paddingLeft="10dp"
+                android:inputType="number"
                 android:layout_marginBottom="2dp"
                 android:background="@drawable/textview_circle2s"
-                android:textCursorDrawable="@color/chengse" />
+                android:textCursorDrawable="@mipmap/cursor" />
         </LinearLayout>
 
         <LinearLayout
@@ -121,9 +122,10 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="2dp"
                 android:paddingLeft="10dp"
+                android:inputType="number"
                 android:layout_marginBottom="2dp"
                 android:background="@drawable/textview_circle2s"
-                android:textCursorDrawable="@color/chengse" />
+                android:textCursorDrawable="@mipmap/cursor" />
         </LinearLayout>
 
         <LinearLayout
@@ -152,7 +154,7 @@
                 android:paddingLeft="10dp"
                 android:inputType="number"
                 android:background="@drawable/textview_circle2s"
-                android:textCursorDrawable="@color/chengse" />
+                android:textCursorDrawable="@mipmap/cursor" />
         </LinearLayout>
 
 

@@ -403,12 +403,14 @@
                     <TextView
                         android:layout_width="0.5dp"
                         android:layout_height="match_parent"
-                        android:background="@color/gray" />
+                        android:background="@color/gray"
+                        android:visibility="gone"/>
 
                     <TextView
                         android:id="@+id/key_item15"
                         style="@style/keybord"
-                        android:text="@string/print_item19" />
+                        android:text="@string/print_item19"
+                        android:visibility="gone"/>
 
                 </LinearLayout>
             </LinearLayout>
